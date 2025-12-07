@@ -1,3 +1,5 @@
+#include <stdint.h>
+
 // NEC timing in microseconds, assuming 1 MHz timer clock
 #define NEC_HDR_LOW_MIN 8000 // 9 ms low
 #define NEC_HDR_LOW_MAX 10000
@@ -13,3 +15,5 @@
 #define NEC_ONE_HIGH_MAX 1900
 
 #define NEC_GAP_RESET 20000 // >20 ms => reset state
+
+void nec_received(uint32_t code);
