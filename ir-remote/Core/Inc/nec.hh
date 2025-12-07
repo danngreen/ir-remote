@@ -1,4 +1,4 @@
-#include <stdint.h>
+#include <cstdint>
 
 // NEC timing in microseconds, assuming 1 MHz timer clock
 #define NEC_HDR_LOW_MIN 8000 // 9 ms low

@@ -1,4 +1,4 @@
-#include "nec.h"
+#include "nec.hh"
 
 void nec_received(uint32_t code) {
 	uint8_t addr = code & 0xFF;

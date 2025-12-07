@@ -1,4 +1,4 @@
-#include "nec.h"
+#include "nec.hh"
 #include "stm32g4xx_hal.h"
 
 typedef enum { NEC_STATE_IDLE = 0, NEC_STATE_LEAD_LOW, NEC_STATE_LEAD_HIGH, NEC_STATE_BITS } nec_state_t;
@@ -9,7 +9,7 @@ static uint8_t expecting_low = 0;
 static uint8_t bit_index = 0;
 static uint32_t nec_code = 0;
 
-void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
+extern "C" void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
 	if (htim->Instance != TIM2)
 		return;
 
