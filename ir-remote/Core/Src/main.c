@@ -212,7 +212,7 @@ static void MX_TIM2_Init(void) {
 
 	/* USER CODE END TIM2_Init 1 */
 	htim2.Instance = TIM2;
-	htim2.Init.Prescaler = 0;
+	htim2.Init.Prescaler = 122; //adjust to hit 1MHz timer res
 	htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
 	htim2.Init.Period = 65535;
 	htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
@@ -228,11 +228,16 @@ static void MX_TIM2_Init(void) {
 	sConfigIC.ICPolarity = TIM_INPUTCHANNELPOLARITY_BOTHEDGE;
 	sConfigIC.ICSelection = TIM_ICSELECTION_DIRECTTI;
 	sConfigIC.ICPrescaler = TIM_ICPSC_DIV1;
-	sConfigIC.ICFilter = 0;
+	sConfigIC.ICFilter = 4; // adjust as needed
 	if (HAL_TIM_IC_ConfigChannel(&htim2, &sConfigIC, TIM_CHANNEL_1) != HAL_OK) {
 		Error_Handler();
 	}
 	/* USER CODE BEGIN TIM2_Init 2 */
+	HAL_NVIC_SetPriority(TIM2_IRQn, 1, 0);
+	HAL_NVIC_EnableIRQ(TIM2_IRQn);
+
+	// Start input capture with interrupt
+	HAL_TIM_IC_Start_IT(&htim2, TIM_CHANNEL_1);
 
 	/* USER CODE END TIM2_Init 2 */
 }
