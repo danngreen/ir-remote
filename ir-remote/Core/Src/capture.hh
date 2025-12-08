@@ -121,7 +121,3 @@ private:
 	uint8_t bit_index = 0;
 	uint32_t nec_code = 0;
 };
-
-extern "C" void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *) {
-	IrCapture::_instance->process();
-}
