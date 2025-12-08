@@ -1,3 +1,6 @@
 [submodule "ir-remote/lib/cpputil"]
 	path = ir-remote/lib/cpputil
 	url = git@github.com:4ms/cpputil
+[submodule "ir-remote/lib/mdrivlib"]
+	path = ir-remote/lib/mdrivlib
+	url = git@github.com:4ms/mdrivlib
