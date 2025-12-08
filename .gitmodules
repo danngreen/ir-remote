@@ -1,0 +1,3 @@
+[submodule "ir-remote/lib/cpputil"]
+	path = ir-remote/lib/cpputil
+	url = git@github.com:4ms/cpputil
