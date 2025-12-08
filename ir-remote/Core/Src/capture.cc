@@ -1,15 +1,28 @@
 #include "nec.hh"
 #include "stm32g4xx_hal.h"
 
-typedef enum { NEC_STATE_IDLE = 0, NEC_STATE_LEAD_LOW, NEC_STATE_LEAD_HIGH, NEC_STATE_BITS } nec_state_t;
+bool nec_validate(uint32_t code) {
+	uint8_t addr = code & 0xFF;
+	uint8_t addr_inv = (code >> 8) & 0xFF;
+	uint8_t cmd = (code >> 16) & 0xFF;
+	uint8_t cmd_inv = (code >> 24) & 0xFF;
 
-static nec_state_t nec_state = NEC_STATE_IDLE;
-static uint16_t last_capture = 0;
-static uint8_t expecting_low = 0;
-static uint8_t bit_index = 0;
-static uint32_t nec_code = 0;
+	if ((addr ^ addr_inv) != 0xFF || (cmd ^ cmd_inv) != 0xFF) {
+		// checksum failed
+		return false;
+	}
+
+	return true;
+}
 
 extern "C" void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
+	enum nec_state_t { NEC_STATE_IDLE = 0, NEC_STATE_LEAD_LOW, NEC_STATE_LEAD_HIGH, NEC_STATE_BITS };
+	static nec_state_t nec_state = NEC_STATE_IDLE;
+	static uint16_t last_capture = 0;
+	static uint8_t expecting_low = 0;
+	static uint8_t bit_index = 0;
+	static uint32_t nec_code = 0;
+
 	if (htim->Instance != TIM2)
 		return;
 
@@ -81,7 +94,9 @@ extern "C" void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
 
 				bit_index++;
 				if (bit_index >= 32) {
-					nec_received(nec_code); // pass full 32-bit frame
+					if (nec_validate(nec_code)) {
+						//
+					}
 					nec_state = NEC_STATE_IDLE;
 					expecting_low = 0;
 					bit_index = 0;

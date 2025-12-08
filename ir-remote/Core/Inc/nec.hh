@@ -15,5 +15,3 @@
 #define NEC_ONE_HIGH_MAX 1900
 
 #define NEC_GAP_RESET 20000 // >20 ms => reset state
-
-void nec_received(uint32_t code);
