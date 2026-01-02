@@ -511,7 +511,7 @@
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "../enclosure/ir-remote-pcb.step",
       "svg": "",
       "vrml": ""
     },
