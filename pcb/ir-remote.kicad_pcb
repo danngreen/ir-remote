@@ -3396,6 +3396,7 @@
 		)
 		(embedded_fonts no)
 		(model "${KICAD6_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_2x04_P2.54mm_Vertical_SMD.wrl"
+			(hide yes)
 			(offset
 				(xyz 0 0 0)
 			)
@@ -4057,6 +4058,7 @@
 		)
 		(embedded_fonts no)
 		(model "${KICAD6_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x02_P2.54mm_Vertical.wrl"
+			(hide yes)
 			(offset
 				(xyz 0 1.27 0)
 			)
@@ -4068,6 +4070,7 @@
 			)
 		)
 		(model "${KICAD6_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x02_P2.54mm_Vertical.step"
+			(hide yes)
 			(offset
 				(xyz 0 1.27 0)
 			)
@@ -9206,7 +9209,7 @@
 			)
 		)
 		(property "Value" "Conn_01x04"
-			(at 0.055 12.19 180)
+			(at 0.055 12.19 0)
 			(layer "F.SilkS")
 			(hide yes)
 			(uuid "d948e445-9d8e-4c4c-afe1-d20c92cb74b3")
@@ -9474,6 +9477,7 @@
 		)
 		(embedded_fonts no)
 		(model "${KICAD6_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x04_P2.54mm_Vertical.wrl"
+			(hide yes)
 			(offset
 				(xyz 0 3.81 0)
 			)
@@ -14532,6 +14536,7 @@
 		)
 		(embedded_fonts no)
 		(model "${KICAD6_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x03_P2.54mm_Vertical.step"
+			(hide yes)
 			(offset
 				(xyz 0 2.54 0)
 			)
@@ -17654,6 +17659,7 @@
 		)
 		(embedded_fonts no)
 		(model "${KICAD6_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x02_P2.54mm_Vertical.wrl"
+			(hide yes)
 			(offset
 				(xyz 0 1.27 0)
 			)
@@ -17665,6 +17671,7 @@
 			)
 		)
 		(model "${KICAD6_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x02_P2.54mm_Vertical.step"
+			(hide yes)
 			(offset
 				(xyz 0 1.27 0)
 			)
@@ -22731,6 +22738,7 @@
 		)
 		(embedded_fonts no)
 		(model "${KICAD6_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x02_P2.54mm_Vertical.wrl"
+			(hide yes)
 			(offset
 				(xyz 0 1.27 0)
 			)
@@ -22742,6 +22750,7 @@
 			)
 		)
 		(model "${KICAD6_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x02_P2.54mm_Vertical.step"
+			(hide yes)
 			(offset
 				(xyz 0 1.27 0)
 			)
@@ -28482,9 +28491,9 @@
 			(uuid "1e208f44-6583-4c9a-9a7d-58f799852aee")
 		)
 		(embedded_fonts no)
-		(model "${KICAD_4MS_LIBS}/3dmodels/Potentiometer.3dshapes/PSM60-082A.stp"
+		(model "${KICAD_4MS_LIBS}/3dmodels/Potentiometer.3dshapes/PSM60-081A-103B2.stp"
 			(offset
-				(xyz -58.3 46 144)
+				(xyz -4.25 -1.77 5.1)
 			)
 			(scale
 				(xyz 1 1 1)
@@ -28789,13 +28798,13 @@
 		(embedded_fonts no)
 		(model "${KICAD9_3DMODEL_DIR}/OptoDevice.3dshapes/Vishay_MINICAST-3Pin.step"
 			(offset
-				(xyz 0 0 0)
+				(xyz 0 0 7)
 			)
 			(scale
 				(xyz 1 1 1)
 			)
 			(rotate
-				(xyz 0 0 0)
+				(xyz -0 -0 -0)
 			)
 		)
 	)
@@ -29388,8 +29397,8 @@
 		)
 	)
 	(gr_line
-		(start 188.03 96.82)
-		(end 60.17 96.82)
+		(start 187.5 96.82)
+		(end 60.5 96.82)
 		(stroke
 			(width 0.05)
 			(type solid)
@@ -29398,8 +29407,8 @@
 		(uuid "4c1db603-ddc9-49c5-9d3c-0d9f8c3bd285")
 	)
 	(gr_line
-		(start 60.17 43.34)
-		(end 188.03 43.34)
+		(start 60.5 43.34)
+		(end 187.5 43.34)
 		(stroke
 			(width 0.05)
 			(type solid)
@@ -29408,8 +29417,8 @@
 		(uuid "760ff46b-0eaa-452f-bfd6-b53e061b4aa3")
 	)
 	(gr_line
-		(start 60.17 96.82)
-		(end 60.17 43.34)
+		(start 60.5 96.82)
+		(end 60.5 43.34)
 		(stroke
 			(width 0.05)
 			(type solid)
@@ -29418,8 +29427,8 @@
 		(uuid "7f06ec75-c424-44d6-9bfd-30bf47585e63")
 	)
 	(gr_line
-		(start 188.03 43.34)
-		(end 188.03 96.82)
+		(start 187.5 43.34)
+		(end 187.5 96.82)
 		(stroke
 			(width 0.05)
 			(type solid)
@@ -29785,14 +29794,14 @@
 		(style
 			(thickness 0.2)
 			(arrow_length 1.27)
-			(text_position_mode 0)
+			(text_position_mode 2)
 			(arrow_direction outward)
 			(extension_height 0.58642)
 			(extension_offset 0.5)
 			(keep_text_aligned yes)
 		)
 		(gr_text "94.17"
-			(at 136.945 108.92 0)
+			(at 136.51 114.9 0)
 			(layer "Dwgs.User")
 			(uuid "db1ba63b-c288-4685-ab92-03d892a7caca")
 			(effects
