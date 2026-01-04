@@ -1412,204 +1412,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "4ms_Capacitor:2.2uF_0603_25V"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0.254)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "C"
-				(at 1.905 1.27 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "2.2uF_0603_25V"
-				(at 0 3.81 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Footprint" "4ms_Capacitor:C_0603"
-				(at 8.255 -12.7 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "2.2uF, Min 25V 10% X5R"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Specifications" "2.2uF, Min 25V 10% X5R"
-				(at -2.54 -7.874 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Manufacturer" "Murata"
-				(at -2.54 -9.398 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Part Number" "GRM188R6YA225KA12D"
-				(at -2.54 -10.922 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Display" "2.2uF"
-				(at 1.905 -1.27 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "JLCPCB ID" "C57895"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Production Stage" "A"
-				(at -2.54 -16.51 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "2.2uF_0603_25V"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "C_*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "2.2uF_0603_25V_0_1"
-				(polyline
-					(pts
-						(xy -1.524 0.508) (xy 1.524 0.508)
-					)
-					(stroke
-						(width 0.3048)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.524 -0.508) (xy 1.524 -0.508)
-					)
-					(stroke
-						(width 0.3302)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "2.2uF_0603_25V_1_1"
-				(pin passive line
-					(at 0 2.54 270)
-					(length 2.032)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -2.54 90)
-					(length 2.032)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "4ms_Capacitor:22uF_1206_25V"
 			(pin_numbers
 				(hide yes)
@@ -9571,190 +9373,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "4ms_Resistor_0603:27Ω_0603"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "R"
-				(at 2.032 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "27Ω_0603"
-				(at -2.54 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Footprint" "4ms_Resistor:R_0603"
-				(at -2.54 -12.954 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "27Ω, 1%, 1/10W, 0603"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Specifications" "27Ω, 1%, 1/10W, 0603"
-				(at -2.54 -7.62 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Manufacturer" "Yageo"
-				(at -2.54 -9.398 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Part Number" "RC0603FR-0727RL"
-				(at -2.54 -11.176 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Display" "27Ω"
-				(at 3.81 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "JLCPCB ID" "C137753"
-				(at -2.54 -14.732 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Production Stage" "A"
-				(at -2.54 -16.51 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "27Ω 0603 1%"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "R_* R*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "27Ω_0603_0_1"
-				(rectangle
-					(start -1.016 -2.54)
-					(end 1.016 2.54)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "27Ω_0603_1_1"
-				(pin passive line
-					(at 0 3.81 270)
-					(length 1.27)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -3.81 90)
-					(length 1.27)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "4ms_Resistor_0603:31.6k_0603"
 			(pin_numbers
 				(hide yes)
@@ -9900,6 +9518,190 @@
 				)
 			)
 			(symbol "31.6k_0603_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "4ms_Resistor_0603:33Ω_0603"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "R"
+				(at 2.032 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "33Ω_0603"
+				(at -2.54 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Footprint" "4ms_Resistor:R_0603"
+				(at -2.54 -12.954 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "33Ω, 1%, 1/10W, 0603"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Specifications" "33Ω, 1%, 1/10W, 0603"
+				(at -2.54 -7.62 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Manufacturer" "Yageo"
+				(at -2.54 -9.398 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Part Number" "RC0603FR-0733RL"
+				(at -2.54 -11.176 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Display" "33Ω"
+				(at 3.81 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "JLCPCB ID" "C108661"
+				(at -2.54 -14.732 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Production Stage" "A"
+				(at -2.54 -16.51 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "33Ω 0603 1%"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "R_* R*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "33Ω_0603_0_1"
+				(rectangle
+					(start -1.016 -2.54)
+					(end 1.016 2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "33Ω_0603_1_1"
 				(pin passive line
 					(at 0 3.81 270)
 					(length 1.27)
@@ -18409,7 +18211,7 @@
 		)
 	)
 	(symbol
-		(lib_id "4ms_Resistor_0603:27Ω_0603")
+		(lib_id "4ms_Resistor_0603:33Ω_0603")
 		(at 50.8 229.87 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -18425,7 +18227,7 @@
 				)
 			)
 		)
-		(property "Value" "27Ω_0603"
+		(property "Value" "33Ω_0603"
 			(at 50.8 232.41 90)
 			(effects
 				(font
@@ -18453,7 +18255,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "27Ω, 1%, 1/10W, 0603"
+		(property "Description" "33Ω, 1%, 1/10W, 0603"
 			(at 50.8 229.87 0)
 			(effects
 				(font
@@ -18462,7 +18264,7 @@
 				(hide yes)
 			)
 		)
-		(property "Specifications" "27Ω, 1%, 1/10W, 0603"
+		(property "Specifications" "33Ω, 1%, 1/10W, 0603"
 			(at 58.42 232.41 0)
 			(effects
 				(font
@@ -18482,7 +18284,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" "RC0603FR-0727RL"
+		(property "Part Number" "RC0603FR-0733RL"
 			(at 61.976 232.41 0)
 			(effects
 				(font
@@ -18492,15 +18294,15 @@
 				(hide yes)
 			)
 		)
-		(property "Display" "27Ω"
-			(at 50.546 229.87 90)
+		(property "Display" "33Ω"
+			(at 51.054 229.87 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "JLCPCB ID" "C137753"
+		(property "JLCPCB ID" "C23140"
 			(at 65.532 232.41 0)
 			(effects
 				(font
@@ -19647,7 +19449,7 @@
 		)
 	)
 	(symbol
-		(lib_id "4ms_Resistor_0603:27Ω_0603")
+		(lib_id "4ms_Resistor_0603:33Ω_0603")
 		(at 50.8 227.33 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -19663,7 +19465,7 @@
 				)
 			)
 		)
-		(property "Value" "27Ω_0603"
+		(property "Value" "33Ω_0603"
 			(at 50.8 229.87 90)
 			(effects
 				(font
@@ -19691,7 +19493,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "27Ω, 1%, 1/10W, 0603"
+		(property "Description" "33Ω, 1%, 1/10W, 0603"
 			(at 50.8 227.33 0)
 			(effects
 				(font
@@ -19700,7 +19502,7 @@
 				(hide yes)
 			)
 		)
-		(property "Specifications" "27Ω, 1%, 1/10W, 0603"
+		(property "Specifications" "33Ω, 1%, 1/10W, 0603"
 			(at 58.42 229.87 0)
 			(effects
 				(font
@@ -19720,7 +19522,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" "RC0603FR-0727RL"
+		(property "Part Number" "RC0603FR-0733RL"
 			(at 61.976 229.87 0)
 			(effects
 				(font
@@ -19730,15 +19532,15 @@
 				(hide yes)
 			)
 		)
-		(property "Display" "27Ω"
-			(at 50.546 227.33 90)
+		(property "Display" "33Ω"
+			(at 51.054 227.33 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "JLCPCB ID" "C137753"
+		(property "JLCPCB ID" "C23140"
 			(at 65.532 229.87 0)
 			(effects
 				(font
@@ -24040,7 +23842,7 @@
 		)
 	)
 	(symbol
-		(lib_id "4ms_Capacitor:2.2uF_0603_25V")
+		(lib_id "4ms_Capacitor:10uF_0603_10V")
 		(at 321.31 45.72 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -24050,7 +23852,7 @@
 		(fields_autoplaced yes)
 		(uuid "45e37a62-1f69-4634-b8d2-26737e7d6853")
 		(property "Reference" "C40"
-			(at 323.85 45.0913 0)
+			(at 323.85 44.4562 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24058,7 +23860,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "2.2uF_0603_25V"
+		(property "Value" "10uF_0603_10V"
 			(at 321.31 41.91 0)
 			(effects
 				(font
@@ -24068,11 +23870,12 @@
 			)
 		)
 		(property "Footprint" "4ms_Capacitor:C_0603"
-			(at 329.565 58.42 0)
+			(at 318.77 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 				(hide yes)
 			)
 		)
@@ -24085,15 +23888,16 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "10uF, Min. 10V X5R 10%"
 			(at 321.31 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "Specifications" "2.2uF, Min 25V 10% X5R"
+		(property "Specifications" "10uF, Min. 10V X5R 10%"
 			(at 318.77 53.594 0)
 			(effects
 				(font
@@ -24113,7 +23917,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" "GRM188R6YA225KA12D"
+		(property "Part Number" "GRM188R61A106KE69D"
 			(at 318.77 56.642 0)
 			(effects
 				(font
@@ -24123,8 +23927,8 @@
 				(hide yes)
 			)
 		)
-		(property "Display" "2.2uF"
-			(at 323.85 47.6313 0)
+		(property "Display" "10uF/10V"
+			(at 323.85 46.9962 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24132,8 +23936,8 @@
 				(justify left)
 			)
 		)
-		(property "JLCPCB ID" "C57895"
-			(at 321.31 45.72 0)
+		(property "JLCPCB ID" "C19702"
+			(at 322.58 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -30069,7 +29873,7 @@
 		)
 	)
 	(symbol
-		(lib_id "4ms_Resistor_0603:27Ω_0603")
+		(lib_id "4ms_Resistor_0603:33Ω_0603")
 		(at 50.8 232.41 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -30085,7 +29889,7 @@
 				)
 			)
 		)
-		(property "Value" "27Ω_0603"
+		(property "Value" "33Ω_0603"
 			(at 50.8 234.95 90)
 			(effects
 				(font
@@ -30113,7 +29917,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "27Ω, 1%, 1/10W, 0603"
+		(property "Description" "33Ω, 1%, 1/10W, 0603"
 			(at 50.8 232.41 0)
 			(effects
 				(font
@@ -30122,7 +29926,7 @@
 				(hide yes)
 			)
 		)
-		(property "Specifications" "27Ω, 1%, 1/10W, 0603"
+		(property "Specifications" "33Ω, 1%, 1/10W, 0603"
 			(at 58.42 234.95 0)
 			(effects
 				(font
@@ -30142,7 +29946,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" "RC0603FR-0727RL"
+		(property "Part Number" "RC0603FR-0733RL"
 			(at 61.976 234.95 0)
 			(effects
 				(font
@@ -30152,15 +29956,15 @@
 				(hide yes)
 			)
 		)
-		(property "Display" "27Ω"
-			(at 50.546 232.41 90)
+		(property "Display" "33Ω"
+			(at 51.054 232.41 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "JLCPCB ID" "C137753"
+		(property "JLCPCB ID" "C23140"
 			(at 65.532 234.95 0)
 			(effects
 				(font
@@ -35562,7 +35366,7 @@
 		)
 	)
 	(symbol
-		(lib_id "4ms_Resistor_0603:27Ω_0603")
+		(lib_id "4ms_Resistor_0603:33Ω_0603")
 		(at 50.8 234.95 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -35578,7 +35382,7 @@
 				)
 			)
 		)
-		(property "Value" "27Ω_0603"
+		(property "Value" "33Ω_0603"
 			(at 50.8 237.49 90)
 			(effects
 				(font
@@ -35606,7 +35410,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "27Ω, 1%, 1/10W, 0603"
+		(property "Description" "33Ω, 1%, 1/10W, 0603"
 			(at 50.8 234.95 0)
 			(effects
 				(font
@@ -35615,7 +35419,7 @@
 				(hide yes)
 			)
 		)
-		(property "Specifications" "27Ω, 1%, 1/10W, 0603"
+		(property "Specifications" "33Ω, 1%, 1/10W, 0603"
 			(at 58.42 237.49 0)
 			(effects
 				(font
@@ -35635,7 +35439,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" "RC0603FR-0727RL"
+		(property "Part Number" "RC0603FR-0733RL"
 			(at 61.976 237.49 0)
 			(effects
 				(font
@@ -35645,15 +35449,15 @@
 				(hide yes)
 			)
 		)
-		(property "Display" "27Ω"
-			(at 50.546 234.95 90)
+		(property "Display" "33Ω"
+			(at 51.054 234.95 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "JLCPCB ID" "C137753"
+		(property "JLCPCB ID" "C23140"
 			(at 65.532 237.49 0)
 			(effects
 				(font
@@ -38790,7 +38594,7 @@
 		)
 	)
 	(symbol
-		(lib_id "4ms_Resistor_0603:27Ω_0603")
+		(lib_id "4ms_Resistor_0603:33Ω_0603")
 		(at 50.8 237.49 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -38806,7 +38610,7 @@
 				)
 			)
 		)
-		(property "Value" "27Ω_0603"
+		(property "Value" "33Ω_0603"
 			(at 50.8 240.03 90)
 			(effects
 				(font
@@ -38834,7 +38638,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "27Ω, 1%, 1/10W, 0603"
+		(property "Description" "33Ω, 1%, 1/10W, 0603"
 			(at 50.8 237.49 0)
 			(effects
 				(font
@@ -38843,7 +38647,7 @@
 				(hide yes)
 			)
 		)
-		(property "Specifications" "27Ω, 1%, 1/10W, 0603"
+		(property "Specifications" "33Ω, 1%, 1/10W, 0603"
 			(at 58.42 240.03 0)
 			(effects
 				(font
@@ -38863,7 +38667,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" "RC0603FR-0727RL"
+		(property "Part Number" "RC0603FR-0733RL"
 			(at 61.976 240.03 0)
 			(effects
 				(font
@@ -38873,15 +38677,15 @@
 				(hide yes)
 			)
 		)
-		(property "Display" "27Ω"
-			(at 50.546 237.49 90)
+		(property "Display" "33Ω"
+			(at 51.054 237.49 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "JLCPCB ID" "C137753"
+		(property "JLCPCB ID" "C23140"
 			(at 65.532 240.03 0)
 			(effects
 				(font

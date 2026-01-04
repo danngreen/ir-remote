@@ -1614,7 +1614,7 @@
 				)
 			)
 		)
-		(property "Value" "27Ω_0603"
+		(property "Value" "33Ω_0603"
 			(at 0 1.45 0)
 			(layer "F.Fab")
 			(uuid "bf1b7efe-d7c7-4997-a74b-9abb924886e7")
@@ -1637,7 +1637,7 @@
 				)
 			)
 		)
-		(property "Description" "27Ω, 1%, 1/10W, 0603"
+		(property "Description" "33Ω, 1%, 1/10W, 0603"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -1649,7 +1649,7 @@
 				)
 			)
 		)
-		(property "Specifications" "27Ω, 1%, 1/10W, 0603"
+		(property "Specifications" "33Ω, 1%, 1/10W, 0603"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -1675,7 +1675,7 @@
 				)
 			)
 		)
-		(property "Part Number" "RC0603FR-0727RL"
+		(property "Part Number" "RC0603FR-0733RL"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -1688,7 +1688,7 @@
 				)
 			)
 		)
-		(property "Display" "27Ω"
+		(property "Display" "33Ω"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -1701,7 +1701,7 @@
 				)
 			)
 		)
-		(property "JLCPCB ID" "C137753"
+		(property "JLCPCB ID" "C23140"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -12057,7 +12057,7 @@
 				)
 			)
 		)
-		(property "Value" "2.2uF_0603_25V"
+		(property "Value" "10uF_0603_10V"
 			(at 0.1 1.3 0)
 			(layer "F.Fab")
 			(uuid "007f5b8c-7944-4887-bf12-037d24aa184d")
@@ -12080,7 +12080,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "10uF, Min. 10V X5R 10%"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -12092,7 +12092,7 @@
 				)
 			)
 		)
-		(property "Specifications" "2.2uF, Min 25V 10% X5R"
+		(property "Specifications" "10uF, Min. 10V X5R 10%"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -12118,7 +12118,7 @@
 				)
 			)
 		)
-		(property "Part Number" "GRM188R6YA225KA12D"
+		(property "Part Number" "GRM188R61A106KE69D"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -12131,7 +12131,7 @@
 				)
 			)
 		)
-		(property "Display" "2.2uF"
+		(property "Display" "10uF/10V"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -12144,7 +12144,7 @@
 				)
 			)
 		)
-		(property "JLCPCB ID" "C57895"
+		(property "JLCPCB ID" "C19702"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -14250,7 +14250,7 @@
 				)
 			)
 		)
-		(property "Value" "27Ω_0603"
+		(property "Value" "33Ω_0603"
 			(at 0 1.45 0)
 			(layer "F.Fab")
 			(uuid "e50bf016-d048-40ea-85e6-fb261c3cbfc4")
@@ -14273,7 +14273,7 @@
 				)
 			)
 		)
-		(property "Description" "27Ω, 1%, 1/10W, 0603"
+		(property "Description" "33Ω, 1%, 1/10W, 0603"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -14285,7 +14285,7 @@
 				)
 			)
 		)
-		(property "Specifications" "27Ω, 1%, 1/10W, 0603"
+		(property "Specifications" "33Ω, 1%, 1/10W, 0603"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -14311,7 +14311,7 @@
 				)
 			)
 		)
-		(property "Part Number" "RC0603FR-0727RL"
+		(property "Part Number" "RC0603FR-0733RL"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -14324,7 +14324,7 @@
 				)
 			)
 		)
-		(property "Display" "27Ω"
+		(property "Display" "33Ω"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -14337,7 +14337,7 @@
 				)
 			)
 		)
-		(property "JLCPCB ID" "C137753"
+		(property "JLCPCB ID" "C23140"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -23902,7 +23902,7 @@
 				)
 			)
 		)
-		(property "Value" "27Ω_0603"
+		(property "Value" "33Ω_0603"
 			(at 0 1.45 0)
 			(layer "F.Fab")
 			(uuid "03ef6f5f-3f38-4524-b282-d60316473bdb")
@@ -23925,7 +23925,7 @@
 				)
 			)
 		)
-		(property "Description" "27Ω, 1%, 1/10W, 0603"
+		(property "Description" "33Ω, 1%, 1/10W, 0603"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -23937,7 +23937,7 @@
 				)
 			)
 		)
-		(property "Specifications" "27Ω, 1%, 1/10W, 0603"
+		(property "Specifications" "33Ω, 1%, 1/10W, 0603"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -23963,7 +23963,7 @@
 				)
 			)
 		)
-		(property "Part Number" "RC0603FR-0727RL"
+		(property "Part Number" "RC0603FR-0733RL"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -23976,7 +23976,7 @@
 				)
 			)
 		)
-		(property "Display" "27Ω"
+		(property "Display" "33Ω"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -23989,7 +23989,7 @@
 				)
 			)
 		)
-		(property "JLCPCB ID" "C137753"
+		(property "JLCPCB ID" "C23140"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -24423,7 +24423,7 @@
 				)
 			)
 		)
-		(property "Value" "27Ω_0603"
+		(property "Value" "33Ω_0603"
 			(at 0 1.45 0)
 			(layer "F.Fab")
 			(uuid "67f28a06-f9cd-4e0a-9cf2-3983be7abb71")
@@ -24446,7 +24446,7 @@
 				)
 			)
 		)
-		(property "Description" "27Ω, 1%, 1/10W, 0603"
+		(property "Description" "33Ω, 1%, 1/10W, 0603"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -24458,7 +24458,7 @@
 				)
 			)
 		)
-		(property "Specifications" "27Ω, 1%, 1/10W, 0603"
+		(property "Specifications" "33Ω, 1%, 1/10W, 0603"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -24484,7 +24484,7 @@
 				)
 			)
 		)
-		(property "Part Number" "RC0603FR-0727RL"
+		(property "Part Number" "RC0603FR-0733RL"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -24497,7 +24497,7 @@
 				)
 			)
 		)
-		(property "Display" "27Ω"
+		(property "Display" "33Ω"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -24510,7 +24510,7 @@
 				)
 			)
 		)
-		(property "JLCPCB ID" "C137753"
+		(property "JLCPCB ID" "C23140"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -27982,7 +27982,7 @@
 				)
 			)
 		)
-		(property "Value" "27Ω_0603"
+		(property "Value" "33Ω_0603"
 			(at 0 1.45 0)
 			(layer "F.Fab")
 			(uuid "eabe2dec-cd1a-4622-943f-68f852da8090")
@@ -28005,7 +28005,7 @@
 				)
 			)
 		)
-		(property "Description" "27Ω, 1%, 1/10W, 0603"
+		(property "Description" "33Ω, 1%, 1/10W, 0603"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -28017,7 +28017,7 @@
 				)
 			)
 		)
-		(property "Specifications" "27Ω, 1%, 1/10W, 0603"
+		(property "Specifications" "33Ω, 1%, 1/10W, 0603"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -28043,7 +28043,7 @@
 				)
 			)
 		)
-		(property "Part Number" "RC0603FR-0727RL"
+		(property "Part Number" "RC0603FR-0733RL"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -28056,7 +28056,7 @@
 				)
 			)
 		)
-		(property "Display" "27Ω"
+		(property "Display" "33Ω"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -28069,7 +28069,7 @@
 				)
 			)
 		)
-		(property "JLCPCB ID" "C137753"
+		(property "JLCPCB ID" "C23140"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
