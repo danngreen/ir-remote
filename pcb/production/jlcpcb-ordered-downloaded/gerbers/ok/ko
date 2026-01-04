@@ -1,0 +1,30 @@
+G04 -- output software:jlccam pro  *
+G04 -- dbname:*
+G04 -- stepname:edit*
+G04 -- layer:ko*
+*
+G04 -- format*
+%FSLAX26Y26*%
+%MOIN*%
+*
+G04 -- apertures*
+%ADD10C,0.005906*%
+*
+G75*
+G90*
+*
+G54D10*
+G04 DEPTH 1*
+%LPD*%
+D10*
+G01*
+X5000000Y0D02*
+X0D01*
+Y2105511D02*
+X5000000D01*
+X0Y0D02*
+Y2105511D01*
+X5000000D02*
+Y0D01*
+G04 DEPTH 0*
+M02*

@@ -1,0 +1,70 @@
+{
+   "file_counts" : 13,
+   "file_list" : [
+      {
+         "file_describe_code" : 0,
+         "file_name" : "ir-remote-B_Cu.gbl",
+         "layer_name" : "bl"
+      },
+      {
+         "file_describe_code" : 0,
+         "file_name" : "ir-remote-B_Mask.gbs",
+         "layer_name" : "bs"
+      },
+      {
+         "file_describe_code" : 4,
+         "file_name" : "ir-remote-B_Paste.gbp",
+         "layer_name" : "nil"
+      },
+      {
+         "file_describe_code" : 0,
+         "file_name" : "ir-remote-B_Silkscreen.gbo",
+         "layer_name" : "bo"
+      },
+      {
+         "file_describe_code" : 2,
+         "file_name" : "ir-remote-Edge_Cuts.gm1",
+         "layer_name" : "gko"
+      },
+      {
+         "file_describe_code" : 0,
+         "file_name" : "ir-remote-F_Cu.gtl",
+         "layer_name" : "tl"
+      },
+      {
+         "file_describe_code" : 0,
+         "file_name" : "ir-remote-F_Mask.gts",
+         "layer_name" : "ts"
+      },
+      {
+         "file_describe_code" : 0,
+         "file_name" : "ir-remote-F_Paste.gtp",
+         "layer_name" : "tp"
+      },
+      {
+         "file_describe_code" : 0,
+         "file_name" : "ir-remote-F_Silkscreen.gto",
+         "layer_name" : "to"
+      },
+      {
+         "file_describe_code" : 3,
+         "file_name" : "ir-remote-NPTH-drl_map.gbr",
+         "layer_name" : "dd"
+      },
+      {
+         "file_describe_code" : 0,
+         "file_name" : "ir-remote-NPTH.drl",
+         "layer_name" : "npth"
+      },
+      {
+         "file_describe_code" : 3,
+         "file_name" : "ir-remote-PTH-drl_map.gbr",
+         "layer_name" : "dd1"
+      },
+      {
+         "file_describe_code" : 0,
+         "file_name" : "ir-remote-PTH.drl",
+         "layer_name" : "drl"
+      }
+   ]
+}
