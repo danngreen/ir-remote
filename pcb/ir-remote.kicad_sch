@@ -13007,6 +13007,16 @@
 		)
 		(uuid "87ffb6f3-6c16-4b41-88fa-f948393f42b3")
 	)
+	(text "Short JP1 to disable LDO\n(must jump J1 and J2)"
+		(exclude_from_sim no)
+		(at 27.94 268.986 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "8b49e54d-40a8-49fb-ac73-cbd08829e3e8")
+	)
 	(text "AUDIO"
 		(exclude_from_sim no)
 		(at 33.02 167.132 0)
@@ -29117,7 +29127,7 @@
 		(lib_id "Graphic:Logo_Open_Hardware_Small")
 		(at 320.04 443.23 0)
 		(unit 1)
-		(exclude_from_sim no)
+		(exclude_from_sim yes)
 		(in_bom no)
 		(on_board no)
 		(dnp no)
@@ -29160,15 +29170,6 @@
 			)
 		)
 		(property "Description" "Open Hardware logo, small"
-			(at 320.04 443.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Enable" "0"
 			(at 320.04 443.23 0)
 			(effects
 				(font
