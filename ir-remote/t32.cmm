@@ -1,0 +1,33 @@
+RESet
+SYStem.RESet
+SYStem.CPU STM32G431CB
+SYStem.CONFIG.DEBUGPORTTYPE SWD
+SYStem.Option DUALPORT ON
+SYStem.MemAccess DAP
+SYStem.Up
+
+; --------------------------------------------------------------------------------
+; Flash programming
+
+; prepare flash programming (declarations)
+DO ~~/demo/arm/flash/stm32g4xx PREPAREONLY
+
+; ReProgram Flash
+FLASH.ReProgram ALL
+
+PRIVATE &builddir
+&builddir=OS.PPF()
+&builddir=OS.FILE.PATH("&builddir")
+
+PRIVATE &elffile
+&elffile=OS.FILE.JOINPATH("&builddir", "build", "ir-remote.elf")
+&elffile=OS.FILE.REALPATH("&elffile")
+
+Data.LOAD.Elf "&elffile" /CPP
+
+FLASH.ReProgram OFF
+
+; --------------------------------------------------------------------------------
+; Reset the target again
+SYStem.Up
+
