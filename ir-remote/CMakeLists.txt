@@ -44,7 +44,7 @@ set_target_properties(irremote PROPERTIES ADDITIONAL_CLEAN_FILES irremote.map)
 # mdrivlib
 add_library(mdrivlib STATIC
   # lib/mdrivlib/drivers/i2c.cc
-  # lib/mdrivlib/drivers/pin.cc
+  lib/mdrivlib/drivers/pin.cc
   lib/mdrivlib/target/stm32f7xx/drivers/interrupt_handler.cc
   # lib/mdrivlib/target/stm32f7xx/drivers/sai_tdm.cc
 )
@@ -56,6 +56,7 @@ target_include_directories(mdrivlib PUBLIC
   lib/CMSIS/Include
   lib/CMSIS/Core/Include
   lib/CMSIS/Device/ST/STM32G4xx/Include
+  lib/STM32G4xx_HAL_Driver/Inc
 )
 
 target_compile_definitions(mdrivlib PUBLIC
