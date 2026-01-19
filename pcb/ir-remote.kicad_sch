@@ -1412,204 +1412,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "4ms_Capacitor:2.2uF_0603_25V"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0.254)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "C"
-				(at 1.905 1.27 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "2.2uF_0603_25V"
-				(at 0 3.81 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Footprint" "4ms_Capacitor:C_0603"
-				(at 8.255 -12.7 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "2.2uF, Min 25V 10% X5R"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Specifications" "2.2uF, Min 25V 10% X5R"
-				(at -2.54 -7.874 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Manufacturer" "Murata"
-				(at -2.54 -9.398 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Part Number" "GRM188R6YA225KA12D"
-				(at -2.54 -10.922 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Display" "2.2uF"
-				(at 1.905 -1.27 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "JLCPCB ID" "C57895"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Production Stage" "A"
-				(at -2.54 -16.51 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "2.2uF_0603_25V"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "C_*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "2.2uF_0603_25V_0_1"
-				(polyline
-					(pts
-						(xy -1.524 0.508) (xy 1.524 0.508)
-					)
-					(stroke
-						(width 0.3048)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.524 -0.508) (xy 1.524 -0.508)
-					)
-					(stroke
-						(width 0.3302)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "2.2uF_0603_25V_1_1"
-				(pin passive line
-					(at 0 2.54 270)
-					(length 2.032)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -2.54 90)
-					(length 2.032)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "4ms_Capacitor:22uF_1206_25V"
 			(pin_numbers
 				(hide yes)
@@ -9571,190 +9373,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "4ms_Resistor_0603:27Ω_0603"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "R"
-				(at 2.032 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "27Ω_0603"
-				(at -2.54 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Footprint" "4ms_Resistor:R_0603"
-				(at -2.54 -12.954 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "27Ω, 1%, 1/10W, 0603"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Specifications" "27Ω, 1%, 1/10W, 0603"
-				(at -2.54 -7.62 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Manufacturer" "Yageo"
-				(at -2.54 -9.398 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Part Number" "RC0603FR-0727RL"
-				(at -2.54 -11.176 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Display" "27Ω"
-				(at 3.81 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "JLCPCB ID" "C137753"
-				(at -2.54 -14.732 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Production Stage" "A"
-				(at -2.54 -16.51 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "27Ω 0603 1%"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "R_* R*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "27Ω_0603_0_1"
-				(rectangle
-					(start -1.016 -2.54)
-					(end 1.016 2.54)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "27Ω_0603_1_1"
-				(pin passive line
-					(at 0 3.81 270)
-					(length 1.27)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -3.81 90)
-					(length 1.27)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "4ms_Resistor_0603:31.6k_0603"
 			(pin_numbers
 				(hide yes)
@@ -9939,6 +9557,190 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "4ms_Resistor_0603:33Ω_0603"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "R"
+				(at 2.032 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "33Ω_0603"
+				(at -2.54 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Footprint" "4ms_Resistor:R_0603"
+				(at -2.54 -12.954 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "33Ω, 1%, 1/10W, 0603"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Specifications" "33Ω, 1%, 1/10W, 0603"
+				(at -2.54 -7.62 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Manufacturer" "Yageo"
+				(at -2.54 -9.398 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Part Number" "RC0603FR-0733RL"
+				(at -2.54 -11.176 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Display" "33Ω"
+				(at 3.81 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "JLCPCB ID" "C108661"
+				(at -2.54 -14.732 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Production Stage" "A"
+				(at -2.54 -16.51 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "33Ω 0603 1%"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "R_* R*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "33Ω_0603_0_1"
+				(rectangle
+					(start -1.016 -2.54)
+					(end 1.016 2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "33Ω_0603_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "4ms_Resistor_0603:4.7k_0603"
 			(pin_numbers
 				(hide yes)
@@ -10084,6 +9886,190 @@
 				)
 			)
 			(symbol "4.7k_0603_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "4ms_Resistor_0603:5.1k_0603"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "R"
+				(at 2.032 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "5.1k_0603"
+				(at -2.54 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Footprint" "4ms_Resistor:R_0603"
+				(at -2.54 -12.954 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "5.1k, 1%, 1/10W, 0603"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Specifications" "5.1k, 1%, 1/10W, 0603"
+				(at -2.54 -7.62 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Manufacturer" "Yageo"
+				(at -2.54 -9.398 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Part Number" "RC0603FR-075K1L"
+				(at -2.54 -11.176 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Display" "5.1k"
+				(at 3.81 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "JLCPCB ID" "C105580"
+				(at -2.54 -14.732 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Production Stage" "A"
+				(at -2.54 -16.51 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "5.1k 0603 1%"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "R_* R*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "5.1k_0603_0_1"
+				(rectangle
+					(start -1.016 -2.54)
+					(end 1.016 2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "5.1k_0603_1_1"
 				(pin passive line
 					(at 0 3.81 270)
 					(length 1.27)
@@ -13299,7 +13285,7 @@
 		(uuid "5e11c170-df81-440c-9569-63c496e63ae9")
 	)
 	(junction
-		(at 106.68 382.27)
+		(at 119.38 382.27)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "5e422689-1214-4b3c-9100-7db9766c7e8b")
@@ -13309,12 +13295,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "5f2107c1-0267-400a-956f-186176817ab1")
-	)
-	(junction
-		(at 35.56 422.91)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "609dcdbf-96d5-43d2-951b-f6d9c6b1fd47")
 	)
 	(junction
 		(at 227.33 374.65)
@@ -13357,6 +13337,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "795233a5-903e-4dc1-a8de-dd00c86cb85a")
+	)
+	(junction
+		(at 35.56 425.45)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7a4640ea-1400-401f-8cc0-a013645418f0")
 	)
 	(junction
 		(at 238.76 393.7)
@@ -13509,7 +13495,7 @@
 		(uuid "c8aa52c5-2e35-4fcb-ae3f-93932f527972")
 	)
 	(junction
-		(at 78.74 384.81)
+		(at 91.44 384.81)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ced777b4-18bc-4c27-892c-6f8399ccfdfb")
@@ -13521,13 +13507,13 @@
 		(uuid "d2b1980a-9b0e-4b26-a97a-a7b239b7bd2f")
 	)
 	(junction
-		(at 96.52 364.49)
+		(at 109.22 364.49)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d40543ee-ba19-4b56-98c1-5a81e1e34c37")
 	)
 	(junction
-		(at 86.36 384.81)
+		(at 99.06 384.81)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d5e74b9f-ebc1-4f59-b61b-05530435b617")
@@ -13557,7 +13543,7 @@
 		(uuid "e12bbbbd-57a6-487c-8308-f8d320a195e9")
 	)
 	(junction
-		(at 106.68 373.38)
+		(at 119.38 373.38)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e44e77cb-b0cd-4bb0-a04e-ae68c348f273")
@@ -13609,14 +13595,6 @@
 	(no_connect
 		(at 33.02 116.84)
 		(uuid "83c35fc6-b1e5-44c9-8eeb-412b2367a592")
-	)
-	(no_connect
-		(at 67.31 392.43)
-		(uuid "84744aa0-6ff6-4ec3-9734-3e32ec348838")
-	)
-	(no_connect
-		(at 67.31 389.89)
-		(uuid "8784d375-3a5b-4f06-be04-23103b36b140")
 	)
 	(no_connect
 		(at 67.31 394.97)
@@ -13752,7 +13730,7 @@
 	)
 	(wire
 		(pts
-			(xy 106.68 382.27) (xy 106.68 373.38)
+			(xy 119.38 382.27) (xy 119.38 373.38)
 		)
 		(stroke
 			(width 0)
@@ -13922,7 +13900,7 @@
 	)
 	(wire
 		(pts
-			(xy 67.31 364.49) (xy 96.52 364.49)
+			(xy 67.31 364.49) (xy 109.22 364.49)
 		)
 		(stroke
 			(width 0)
@@ -13979,6 +13957,16 @@
 			(type default)
 		)
 		(uuid "157b0eba-18d0-4e1b-9da0-ecb77ef1c734")
+	)
+	(wire
+		(pts
+			(xy 67.31 392.43) (xy 74.93 392.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "158c063c-73e2-4f6b-a17d-37e6c67b0ac8")
 	)
 	(wire
 		(pts
@@ -14042,7 +14030,7 @@
 	)
 	(wire
 		(pts
-			(xy 106.68 382.27) (xy 106.68 387.35)
+			(xy 119.38 382.27) (xy 119.38 387.35)
 		)
 		(stroke
 			(width 0)
@@ -14099,6 +14087,16 @@
 			(type default)
 		)
 		(uuid "1e19cb6c-33d3-40a1-a672-a788c712d8d9")
+	)
+	(wire
+		(pts
+			(xy 67.31 389.89) (xy 83.82 389.89)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1e803b30-2ed7-444d-b58c-09656aba9040")
 	)
 	(wire
 		(pts
@@ -14312,7 +14310,7 @@
 	)
 	(wire
 		(pts
-			(xy 78.74 384.81) (xy 78.74 401.32)
+			(xy 91.44 384.81) (xy 91.44 401.32)
 		)
 		(stroke
 			(width 0)
@@ -14489,6 +14487,16 @@
 			(type default)
 		)
 		(uuid "3c114b30-8e4e-48ac-90a5-176c3eb7210e")
+	)
+	(wire
+		(pts
+			(xy 83.82 389.89) (xy 83.82 414.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3e6f9bd6-e90c-49ed-aa7d-9c346a560dff")
 	)
 	(wire
 		(pts
@@ -14702,7 +14710,7 @@
 	)
 	(wire
 		(pts
-			(xy 67.31 384.81) (xy 78.74 384.81)
+			(xy 67.31 384.81) (xy 91.44 384.81)
 		)
 		(stroke
 			(width 0)
@@ -14892,7 +14900,7 @@
 	)
 	(wire
 		(pts
-			(xy 86.36 384.81) (xy 86.36 387.35)
+			(xy 99.06 384.81) (xy 99.06 387.35)
 		)
 		(stroke
 			(width 0)
@@ -14919,6 +14927,16 @@
 			(type default)
 		)
 		(uuid "5bdc596e-bb13-484b-8f18-e204842f7566")
+	)
+	(wire
+		(pts
+			(xy 35.56 426.72) (xy 35.56 425.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5dc3bd8b-83b3-4859-9292-e99ee6baf363")
 	)
 	(wire
 		(pts
@@ -15262,7 +15280,7 @@
 	)
 	(wire
 		(pts
-			(xy 86.36 382.27) (xy 86.36 384.81)
+			(xy 99.06 382.27) (xy 99.06 384.81)
 		)
 		(stroke
 			(width 0)
@@ -15412,7 +15430,7 @@
 	)
 	(wire
 		(pts
-			(xy 96.52 364.49) (xy 118.11 364.49)
+			(xy 109.22 364.49) (xy 130.81 364.49)
 		)
 		(stroke
 			(width 0)
@@ -15479,6 +15497,16 @@
 			(type default)
 		)
 		(uuid "8d88ada1-83cf-4e23-ad3f-b86e70470860")
+	)
+	(wire
+		(pts
+			(xy 74.93 392.43) (xy 74.93 414.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8fef82e7-0ee1-40cd-b2fa-7a3b91a359c6")
 	)
 	(wire
 		(pts
@@ -15592,7 +15620,7 @@
 	)
 	(wire
 		(pts
-			(xy 31.75 408.94) (xy 31.75 422.91)
+			(xy 31.75 408.94) (xy 31.75 425.45)
 		)
 		(stroke
 			(width 0)
@@ -15752,7 +15780,7 @@
 	)
 	(wire
 		(pts
-			(xy 31.75 422.91) (xy 35.56 422.91)
+			(xy 31.75 425.45) (xy 35.56 425.45)
 		)
 		(stroke
 			(width 0)
@@ -15772,7 +15800,7 @@
 	)
 	(wire
 		(pts
-			(xy 67.31 373.38) (xy 106.68 373.38)
+			(xy 67.31 373.38) (xy 119.38 373.38)
 		)
 		(stroke
 			(width 0)
@@ -15852,7 +15880,7 @@
 	)
 	(wire
 		(pts
-			(xy 78.74 401.32) (xy 118.11 401.32)
+			(xy 91.44 401.32) (xy 130.81 401.32)
 		)
 		(stroke
 			(width 0)
@@ -15949,6 +15977,16 @@
 			(type default)
 		)
 		(uuid "b96e690e-374f-48c8-841c-f339a2a70df0")
+	)
+	(wire
+		(pts
+			(xy 35.56 425.45) (xy 35.56 422.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b9e33ac0-5d4a-476b-aae8-6fc68fe9713b")
 	)
 	(wire
 		(pts
@@ -16072,7 +16110,7 @@
 	)
 	(wire
 		(pts
-			(xy 96.52 364.49) (xy 96.52 374.65)
+			(xy 109.22 364.49) (xy 109.22 374.65)
 		)
 		(stroke
 			(width 0)
@@ -16289,6 +16327,16 @@
 			(type default)
 		)
 		(uuid "ce5eea1b-c476-45d7-8867-72e0705f8e6d")
+	)
+	(wire
+		(pts
+			(xy 74.93 421.64) (xy 74.93 426.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cea96b7a-4a2f-4e52-b6b5-1c797535e112")
 	)
 	(wire
 		(pts
@@ -16692,13 +16740,23 @@
 	)
 	(wire
 		(pts
-			(xy 78.74 384.81) (xy 86.36 384.81)
+			(xy 91.44 384.81) (xy 99.06 384.81)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "f17693a0-8094-481c-b350-290b5c152cca")
+	)
+	(wire
+		(pts
+			(xy 83.82 426.72) (xy 83.82 421.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f1dbfef9-5449-40d4-b300-8484d3c2536a")
 	)
 	(wire
 		(pts
@@ -16762,7 +16820,7 @@
 	)
 	(wire
 		(pts
-			(xy 118.11 373.38) (xy 106.68 373.38)
+			(xy 130.81 373.38) (xy 119.38 373.38)
 		)
 		(stroke
 			(width 0)
@@ -16961,7 +17019,7 @@
 		(uuid "2911839e-1dea-4299-934c-f63ef16d0421")
 	)
 	(label "V_USB"
-		(at 118.11 364.49 180)
+		(at 130.81 364.49 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17291,7 +17349,7 @@
 		(uuid "7d044d25-41e8-43b1-9e6c-df6a87c8acd1")
 	)
 	(label "USB_DP"
-		(at 118.11 373.38 180)
+		(at 130.81 373.38 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17301,7 +17359,7 @@
 		(uuid "83431578-611a-44d7-9964-06095bd06bb0")
 	)
 	(label "USB_DM"
-		(at 118.11 401.32 180)
+		(at 130.81 401.32 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18163,7 +18221,7 @@
 		)
 	)
 	(symbol
-		(lib_id "4ms_Resistor_0603:27Ω_0603")
+		(lib_id "4ms_Resistor_0603:33Ω_0603")
 		(at 50.8 229.87 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -18179,7 +18237,7 @@
 				)
 			)
 		)
-		(property "Value" "27Ω_0603"
+		(property "Value" "33Ω_0603"
 			(at 50.8 232.41 90)
 			(effects
 				(font
@@ -18207,7 +18265,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "27Ω, 1%, 1/10W, 0603"
+		(property "Description" "33Ω, 1%, 1/10W, 0603"
 			(at 50.8 229.87 0)
 			(effects
 				(font
@@ -18216,7 +18274,7 @@
 				(hide yes)
 			)
 		)
-		(property "Specifications" "27Ω, 1%, 1/10W, 0603"
+		(property "Specifications" "33Ω, 1%, 1/10W, 0603"
 			(at 58.42 232.41 0)
 			(effects
 				(font
@@ -18236,7 +18294,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" "RC0603FR-0727RL"
+		(property "Part Number" "RC0603FR-0733RL"
 			(at 61.976 232.41 0)
 			(effects
 				(font
@@ -18246,15 +18304,15 @@
 				(hide yes)
 			)
 		)
-		(property "Display" "27Ω"
-			(at 50.546 229.87 90)
+		(property "Display" "33Ω"
+			(at 51.054 229.87 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "JLCPCB ID" "C137753"
+		(property "JLCPCB ID" "C23140"
 			(at 65.532 232.41 0)
 			(effects
 				(font
@@ -19401,7 +19459,7 @@
 		)
 	)
 	(symbol
-		(lib_id "4ms_Resistor_0603:27Ω_0603")
+		(lib_id "4ms_Resistor_0603:33Ω_0603")
 		(at 50.8 227.33 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -19417,7 +19475,7 @@
 				)
 			)
 		)
-		(property "Value" "27Ω_0603"
+		(property "Value" "33Ω_0603"
 			(at 50.8 229.87 90)
 			(effects
 				(font
@@ -19445,7 +19503,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "27Ω, 1%, 1/10W, 0603"
+		(property "Description" "33Ω, 1%, 1/10W, 0603"
 			(at 50.8 227.33 0)
 			(effects
 				(font
@@ -19454,7 +19512,7 @@
 				(hide yes)
 			)
 		)
-		(property "Specifications" "27Ω, 1%, 1/10W, 0603"
+		(property "Specifications" "33Ω, 1%, 1/10W, 0603"
 			(at 58.42 229.87 0)
 			(effects
 				(font
@@ -19474,7 +19532,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" "RC0603FR-0727RL"
+		(property "Part Number" "RC0603FR-0733RL"
 			(at 61.976 229.87 0)
 			(effects
 				(font
@@ -19484,15 +19542,15 @@
 				(hide yes)
 			)
 		)
-		(property "Display" "27Ω"
-			(at 50.546 227.33 90)
+		(property "Display" "33Ω"
+			(at 51.054 227.33 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "JLCPCB ID" "C137753"
+		(property "JLCPCB ID" "C23140"
 			(at 65.532 229.87 0)
 			(effects
 				(font
@@ -21812,6 +21870,71 @@
 	)
 	(symbol
 		(lib_id "power:GND")
+		(at 83.82 426.72 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "2d0c9183-379d-4944-a183-207c673bb927")
+		(property "Reference" "#PWR071"
+			(at 83.82 433.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 83.82 431.1634 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 83.82 426.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 83.82 426.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 83.82 426.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "2e01247b-59ca-4e66-af66-7fc85c93439a")
+		)
+		(instances
+			(project "ir-remote"
+				(path "/b7b1821b-ed18-43e5-b98d-2e86535038ea"
+					(reference "#PWR071")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
 		(at 275.59 232.41 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -23328,7 +23451,7 @@
 	)
 	(symbol
 		(lib_id "4ms_Power_Symbol:GND")
-		(at 96.52 394.97 0)
+		(at 109.22 394.97 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -23337,7 +23460,7 @@
 		(fields_autoplaced yes)
 		(uuid "426fbf23-9b80-490a-ae80-6e90f650c49d")
 		(property "Reference" "#PWR037"
-			(at 96.52 401.32 0)
+			(at 109.22 401.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23346,7 +23469,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 96.52 398.78 0)
+			(at 109.22 398.78 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23354,7 +23477,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 96.52 394.97 0)
+			(at 109.22 394.97 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23363,7 +23486,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 96.52 394.97 0)
+			(at 109.22 394.97 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23372,7 +23495,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 96.52 394.97 0)
+			(at 109.22 394.97 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23729,7 +23852,7 @@
 		)
 	)
 	(symbol
-		(lib_id "4ms_Capacitor:2.2uF_0603_25V")
+		(lib_id "4ms_Capacitor:10uF_0603_10V")
 		(at 321.31 45.72 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -23739,7 +23862,7 @@
 		(fields_autoplaced yes)
 		(uuid "45e37a62-1f69-4634-b8d2-26737e7d6853")
 		(property "Reference" "C40"
-			(at 323.85 45.0913 0)
+			(at 323.85 44.4562 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23747,7 +23870,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "2.2uF_0603_25V"
+		(property "Value" "10uF_0603_10V"
 			(at 321.31 41.91 0)
 			(effects
 				(font
@@ -23757,11 +23880,12 @@
 			)
 		)
 		(property "Footprint" "4ms_Capacitor:C_0603"
-			(at 329.565 58.42 0)
+			(at 318.77 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 				(hide yes)
 			)
 		)
@@ -23774,15 +23898,16 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "10uF, Min. 10V X5R 10%"
 			(at 321.31 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "Specifications" "2.2uF, Min 25V 10% X5R"
+		(property "Specifications" "10uF, Min. 10V X5R 10%"
 			(at 318.77 53.594 0)
 			(effects
 				(font
@@ -23802,7 +23927,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" "GRM188R6YA225KA12D"
+		(property "Part Number" "GRM188R61A106KE69D"
 			(at 318.77 56.642 0)
 			(effects
 				(font
@@ -23812,8 +23937,8 @@
 				(hide yes)
 			)
 		)
-		(property "Display" "2.2uF"
-			(at 323.85 47.6313 0)
+		(property "Display" "10uF/10V"
+			(at 323.85 46.9962 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23821,8 +23946,8 @@
 				(justify left)
 			)
 		)
-		(property "JLCPCB ID" "C57895"
-			(at 321.31 45.72 0)
+		(property "JLCPCB ID" "C19702"
+			(at 322.58 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -26117,6 +26242,71 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 74.93 426.72 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "5f71abf8-dc91-4591-9b51-00793cbc5e08")
+		(property "Reference" "#PWR070"
+			(at 74.93 433.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 74.93 431.1634 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 74.93 426.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 74.93 426.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 74.93 426.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "0c0e90d8-6ad0-4de1-a5f9-5119bb59b876")
+		)
+		(instances
+			(project "ir-remote"
+				(path "/b7b1821b-ed18-43e5-b98d-2e86535038ea"
+					(reference "#PWR070")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:PWR_FLAG")
 		(at 24.13 455.93 0)
 		(unit 1)
@@ -26399,6 +26589,136 @@
 			(project "ir-remote"
 				(path "/b7b1821b-ed18-43e5-b98d-2e86535038ea"
 					(reference "C23")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "4ms_Resistor_0603:5.1k_0603")
+		(at 83.82 417.83 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "689274c2-a848-4421-9c2e-8659e208276a")
+		(property "Reference" "R18"
+			(at 86.36 416.5599 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "5.1k_0603"
+			(at 81.28 417.83 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "4ms_Resistor:R_0603"
+			(at 81.28 430.784 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 83.82 417.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "5.1k, 1%, 1/10W, 0603"
+			(at 83.82 417.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Specifications" "5.1k, 1%, 1/10W, 0603"
+			(at 81.28 425.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 81.28 427.228 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Part Number" "RC0603FR-075K1L"
+			(at 81.28 429.006 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Display" "5.1k"
+			(at 86.36 419.0999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "JLCPCB ID" "C105580"
+			(at 81.28 432.562 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Production Stage" "A"
+			(at 81.28 434.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "af12d9e5-4b20-4126-872d-18653611b04d")
+		)
+		(pin "2"
+			(uuid "e3d39b56-6957-4256-bba5-6773f25c1c84")
+		)
+		(instances
+			(project "ir-remote"
+				(path "/b7b1821b-ed18-43e5-b98d-2e86535038ea"
+					(reference "R18")
 					(unit 1)
 				)
 			)
@@ -29563,7 +29883,7 @@
 		)
 	)
 	(symbol
-		(lib_id "4ms_Resistor_0603:27Ω_0603")
+		(lib_id "4ms_Resistor_0603:33Ω_0603")
 		(at 50.8 232.41 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -29579,7 +29899,7 @@
 				)
 			)
 		)
-		(property "Value" "27Ω_0603"
+		(property "Value" "33Ω_0603"
 			(at 50.8 234.95 90)
 			(effects
 				(font
@@ -29607,7 +29927,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "27Ω, 1%, 1/10W, 0603"
+		(property "Description" "33Ω, 1%, 1/10W, 0603"
 			(at 50.8 232.41 0)
 			(effects
 				(font
@@ -29616,7 +29936,7 @@
 				(hide yes)
 			)
 		)
-		(property "Specifications" "27Ω, 1%, 1/10W, 0603"
+		(property "Specifications" "33Ω, 1%, 1/10W, 0603"
 			(at 58.42 234.95 0)
 			(effects
 				(font
@@ -29636,7 +29956,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" "RC0603FR-0727RL"
+		(property "Part Number" "RC0603FR-0733RL"
 			(at 61.976 234.95 0)
 			(effects
 				(font
@@ -29646,15 +29966,15 @@
 				(hide yes)
 			)
 		)
-		(property "Display" "27Ω"
-			(at 50.546 232.41 90)
+		(property "Display" "33Ω"
+			(at 51.054 232.41 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "JLCPCB ID" "C137753"
+		(property "JLCPCB ID" "C23140"
 			(at 65.532 234.95 0)
 			(effects
 				(font
@@ -34759,7 +35079,7 @@
 	)
 	(symbol
 		(lib_id "4ms_Power_Symbol:GND")
-		(at 35.56 422.91 0)
+		(at 35.56 426.72 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -34768,7 +35088,7 @@
 		(fields_autoplaced yes)
 		(uuid "d297f78c-83ec-48d5-9870-a341c8b1ccc1")
 		(property "Reference" "#PWR049"
-			(at 35.56 429.26 0)
+			(at 35.56 433.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -34777,7 +35097,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 35.56 426.72 0)
+			(at 35.56 430.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -34785,7 +35105,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 35.56 422.91 0)
+			(at 35.56 426.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -34794,7 +35114,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 35.56 422.91 0)
+			(at 35.56 426.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -34803,7 +35123,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 35.56 422.91 0)
+			(at 35.56 426.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -35056,7 +35376,7 @@
 		)
 	)
 	(symbol
-		(lib_id "4ms_Resistor_0603:27Ω_0603")
+		(lib_id "4ms_Resistor_0603:33Ω_0603")
 		(at 50.8 234.95 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -35072,7 +35392,7 @@
 				)
 			)
 		)
-		(property "Value" "27Ω_0603"
+		(property "Value" "33Ω_0603"
 			(at 50.8 237.49 90)
 			(effects
 				(font
@@ -35100,7 +35420,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "27Ω, 1%, 1/10W, 0603"
+		(property "Description" "33Ω, 1%, 1/10W, 0603"
 			(at 50.8 234.95 0)
 			(effects
 				(font
@@ -35109,7 +35429,7 @@
 				(hide yes)
 			)
 		)
-		(property "Specifications" "27Ω, 1%, 1/10W, 0603"
+		(property "Specifications" "33Ω, 1%, 1/10W, 0603"
 			(at 58.42 237.49 0)
 			(effects
 				(font
@@ -35129,7 +35449,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" "RC0603FR-0727RL"
+		(property "Part Number" "RC0603FR-0733RL"
 			(at 61.976 237.49 0)
 			(effects
 				(font
@@ -35139,15 +35459,15 @@
 				(hide yes)
 			)
 		)
-		(property "Display" "27Ω"
-			(at 50.546 234.95 90)
+		(property "Display" "33Ω"
+			(at 51.054 234.95 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "JLCPCB ID" "C137753"
+		(property "JLCPCB ID" "C23140"
 			(at 65.532 237.49 0)
 			(effects
 				(font
@@ -35682,6 +36002,136 @@
 		)
 	)
 	(symbol
+		(lib_id "4ms_Resistor_0603:5.1k_0603")
+		(at 74.93 417.83 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "e12d18f4-236f-42e0-926f-e3ba99f7405f")
+		(property "Reference" "R17"
+			(at 77.47 416.5599 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "5.1k_0603"
+			(at 72.39 417.83 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "4ms_Resistor:R_0603"
+			(at 72.39 430.784 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 74.93 417.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "5.1k, 1%, 1/10W, 0603"
+			(at 74.93 417.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Specifications" "5.1k, 1%, 1/10W, 0603"
+			(at 72.39 425.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 72.39 427.228 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Part Number" "RC0603FR-075K1L"
+			(at 72.39 429.006 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Display" "5.1k"
+			(at 77.47 419.0999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "JLCPCB ID" "C105580"
+			(at 72.39 432.562 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Production Stage" "A"
+			(at 72.39 434.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6a76bb17-0ea4-4e77-b1e6-84be568c4d70")
+		)
+		(pin "2"
+			(uuid "4f135dcd-9b24-4283-8824-92a111958e15")
+		)
+		(instances
+			(project "ir-remote"
+				(path "/b7b1821b-ed18-43e5-b98d-2e86535038ea"
+					(reference "R17")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Mechanical:MountingHole")
 		(at 383.54 238.76 0)
 		(unit 1)
@@ -36096,7 +36546,7 @@
 	)
 	(symbol
 		(lib_id "4ms_IC:USBLC6-2SC6")
-		(at 96.52 384.81 0)
+		(at 109.22 384.81 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -36104,7 +36554,7 @@
 		(dnp no)
 		(uuid "e452f6c6-61bf-48b6-bc17-f62aa7f03744")
 		(property "Reference" "U6"
-			(at 85.344 376.428 0)
+			(at 98.044 376.428 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -36113,7 +36563,7 @@
 			)
 		)
 		(property "Value" "USBLC6-2SC6"
-			(at 73.914 378.714 0)
+			(at 86.614 378.714 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -36122,7 +36572,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
-			(at 95.25 400.05 0)
+			(at 107.95 400.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -36131,7 +36581,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.st.com/resource/en/datasheet/usblc6-2.pdf"
-			(at 95.25 403.86 0)
+			(at 107.95 403.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -36140,7 +36590,7 @@
 			)
 		)
 		(property "Description" "Very low capacitance ESD protection diode, 2 data-line, SOT-23-6"
-			(at 96.52 384.81 0)
+			(at 109.22 384.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -36149,7 +36599,7 @@
 			)
 		)
 		(property "JLCPCB ID" "C2827654"
-			(at 96.52 406.4 0)
+			(at 109.22 406.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -36158,7 +36608,7 @@
 			)
 		)
 		(property "Manufacturer" "STMicroelectronics"
-			(at 96.4692 408.3304 0)
+			(at 109.1692 408.3304 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -36167,7 +36617,7 @@
 			)
 		)
 		(property "Part Number" "USBLC6-2SC6"
-			(at 96.52 397.51 0)
+			(at 109.22 397.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -36176,7 +36626,7 @@
 			)
 		)
 		(property "Specifications" "ESD Protection, pins 3+4, 1+6 shorted"
-			(at 96.8248 410.1592 0)
+			(at 109.5248 410.1592 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -36185,7 +36635,7 @@
 			)
 		)
 		(property "Production Stage" "A"
-			(at 93.98 401.32 0)
+			(at 106.68 401.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -36195,7 +36645,7 @@
 			)
 		)
 		(property "Alt JLCPCB ID" ""
-			(at 96.52 384.81 0)
+			(at 109.22 384.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -36204,7 +36654,7 @@
 			)
 		)
 		(property "JLCPCB ID 3" ""
-			(at 96.52 384.81 0)
+			(at 109.22 384.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -36213,7 +36663,7 @@
 			)
 		)
 		(property "Note" ""
-			(at 96.52 384.81 0)
+			(at 109.22 384.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -38154,7 +38604,7 @@
 		)
 	)
 	(symbol
-		(lib_id "4ms_Resistor_0603:27Ω_0603")
+		(lib_id "4ms_Resistor_0603:33Ω_0603")
 		(at 50.8 237.49 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -38170,7 +38620,7 @@
 				)
 			)
 		)
-		(property "Value" "27Ω_0603"
+		(property "Value" "33Ω_0603"
 			(at 50.8 240.03 90)
 			(effects
 				(font
@@ -38198,7 +38648,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "27Ω, 1%, 1/10W, 0603"
+		(property "Description" "33Ω, 1%, 1/10W, 0603"
 			(at 50.8 237.49 0)
 			(effects
 				(font
@@ -38207,7 +38657,7 @@
 				(hide yes)
 			)
 		)
-		(property "Specifications" "27Ω, 1%, 1/10W, 0603"
+		(property "Specifications" "33Ω, 1%, 1/10W, 0603"
 			(at 58.42 240.03 0)
 			(effects
 				(font
@@ -38227,7 +38677,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part Number" "RC0603FR-0727RL"
+		(property "Part Number" "RC0603FR-0733RL"
 			(at 61.976 240.03 0)
 			(effects
 				(font
@@ -38237,15 +38687,15 @@
 				(hide yes)
 			)
 		)
-		(property "Display" "27Ω"
-			(at 50.546 237.49 90)
+		(property "Display" "33Ω"
+			(at 51.054 237.49 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "JLCPCB ID" "C137753"
+		(property "JLCPCB ID" "C23140"
 			(at 65.532 240.03 0)
 			(effects
 				(font

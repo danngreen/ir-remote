@@ -11,40 +11,63 @@ if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE "Debug")
 endif()
 
-# Set the project name
 set(CMAKE_PROJECT_NAME ir-remote)
 
-# Include toolchain file
 include("cmake/gcc-arm-none-eabi.cmake")
 
-# Enable compile command to ease indexing with e.g. clangd
 set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 
 # Core project settings
-project(${CMAKE_PROJECT_NAME})
+project(irremote)
 message("Build type: " ${CMAKE_BUILD_TYPE})
 
-# Enable CMake support for ASM and C languages
 enable_language(C CXX ASM)
 
-add_executable(${CMAKE_PROJECT_NAME})
+add_executable(irremote)
 
-# Add STM32CubeMX generated sources
+# CubeMX/HAL
 add_subdirectory(cmake/stm32cubemx)
 
-add_subdirectory(${CMAKE_SOURCE_DIR}/lib/cpputil
-                 ${CMAKE_CURRENT_BINARY_DIR}/cpputil)
+# App
+target_sources(irremote PRIVATE
+    Core/Src/main.cc
+    Core/Src/stm32g4xx_it.c
+    Core/Src/stm32g4xx_hal_msp.c
+    Core/Src/sysmem.c
+    Core/Src/syscalls.c
+    startup_stm32g431xx.s
+    Core/Src/hal_init.cc)
 
-target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE)
+set_target_properties(irremote PROPERTIES ADDITIONAL_CLEAN_FILES irremote.map)
 
-target_sources(${CMAKE_PROJECT_NAME} PRIVATE Core/Src/hal_init.cc)
 
-target_include_directories(
-  ${CMAKE_PROJECT_NAME} PRIVATE # Add user defined include paths
+# mdrivlib
+add_library(mdrivlib STATIC
+  # lib/mdrivlib/drivers/i2c.cc
+  lib/mdrivlib/drivers/pin.cc
+  lib/mdrivlib/target/stm32f7xx/drivers/interrupt_handler.cc
+  # lib/mdrivlib/target/stm32f7xx/drivers/sai_tdm.cc
 )
 
-target_compile_definitions(
-  ${CMAKE_PROJECT_NAME} PRIVATE # Add user defined symbols
+target_include_directories(mdrivlib PUBLIC
+  lib/cpputil
+  lib/mdrivlib/
+  lib/mdrivlib/target/stm32f7xx/
+  lib/CMSIS/Include
+  lib/CMSIS/Core/Include
+  lib/CMSIS/Device/ST/STM32G4xx/Include
+  lib/STM32G4xx_HAL_Driver/Inc
 )
 
-target_link_libraries(${CMAKE_PROJECT_NAME} stm32cubemx cpputil::cpputil)
+target_compile_definitions(mdrivlib PUBLIC
+  STM32G4
+  STM32G431
+  STM32G431xx
+)
+
+# cpputil
+add_subdirectory(${CMAKE_SOURCE_DIR}/lib/cpputil ${CMAKE_CURRENT_BINARY_DIR}/cpputil)
+
+
+target_link_libraries(irremote STM32_Drivers)
+target_link_libraries(irremote stm32cubemx cpputil::cpputil mdrivlib)
