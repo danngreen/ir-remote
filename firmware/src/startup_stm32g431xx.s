@@ -45,7 +45,6 @@ defined in linker script */
 /* end address for the .bss section. defined in linker script */
 .word	_ebss
 
-.equ  BootRAM,        0xF1E0F85F
 /**
  * @brief  This is the code that gets called when the processor first
  *          starts execution following a reset event. Only the absolutely
@@ -62,9 +61,6 @@ Reset_Handler:
   ldr   r0, =_estack
   mov   sp, r0          /* set stack pointer */
   
-/* Call the clock system initialization function.*/
-    bl  SystemInit
-
 /* Copy the data segment initializers from flash to SRAM */
   ldr r0, =_sdata
   ldr r1, =_edata
@@ -95,8 +91,14 @@ FillZerobss:
 LoopFillZerobss:
   cmp r2, r4
   bcc FillZerobss
+
+
+/* Call the clock system initialization function.*/
+    bl  SystemInit
+
 /* Call static constructors */
     bl __libc_init_array
+
 /* Call the application's entry point.*/
 	bl	main
 
@@ -105,394 +107,151 @@ LoopForever:
 
 .size	Reset_Handler, .-Reset_Handler
 
+
 /**
- * @brief  This is the code that gets called when the processor receives an
+ * @brief  This is the code that gets called when the processor receives an 
  *         unexpected interrupt.  This simply enters an infinite loop, preserving
  *         the system state for examination by a debugger.
- *
- * @param  None
- * @retval : None
+ * @param  None     
+ * @retval None       
 */
-    .section	.text.Default_Handler,"ax",%progbits
+    .section  .text.Default_Handler,"ax",%progbits
 Default_Handler:
 Infinite_Loop:
-	b	Infinite_Loop
-	.size	Default_Handler, .-Default_Handler
+  b  Infinite_Loop
+  .size  Default_Handler, .-Default_Handler
 /******************************************************************************
 *
-* The minimal vector table for a Cortex-M4.  Note that the proper constructs
+* The minimal vector table for a Cortex M7. Note that the proper constructs
 * must be placed on this to ensure that it ends up at physical address
 * 0x0000.0000.
-*
-******************************************************************************/
- 	.section	.isr_vector,"a",%progbits
-	.type	g_pfnVectors, %object
-
-
-g_pfnVectors:
-	.word	_estack
-	.word	Reset_Handler
-	.word	NMI_Handler
-	.word	HardFault_Handler
-	.word	MemManage_Handler
-	.word	BusFault_Handler
-	.word	UsageFault_Handler
-	.word	0
-	.word	0
-	.word	0
-	.word	0
-	.word	SVC_Handler
-	.word	DebugMon_Handler
-	.word	0
-	.word	PendSV_Handler
-	.word	SysTick_Handler
-	.word	WWDG_IRQHandler
-	.word	PVD_PVM_IRQHandler
-	.word	RTC_TAMP_LSECSS_IRQHandler
-	.word	RTC_WKUP_IRQHandler
-	.word	FLASH_IRQHandler
-	.word	RCC_IRQHandler
-	.word	EXTI0_IRQHandler
-	.word	EXTI1_IRQHandler
-	.word	EXTI2_IRQHandler
-	.word	EXTI3_IRQHandler
-	.word	EXTI4_IRQHandler
-	.word	DMA1_Channel1_IRQHandler
-	.word	DMA1_Channel2_IRQHandler
-	.word	DMA1_Channel3_IRQHandler
-	.word	DMA1_Channel4_IRQHandler
-	.word	DMA1_Channel5_IRQHandler
-	.word	DMA1_Channel6_IRQHandler
-	.word	0
-	.word	ADC1_2_IRQHandler
-	.word	USB_HP_IRQHandler
-	.word	USB_LP_IRQHandler
-	.word	FDCAN1_IT0_IRQHandler
-	.word	FDCAN1_IT1_IRQHandler
-	.word	EXTI9_5_IRQHandler
-	.word	TIM1_BRK_TIM15_IRQHandler
-	.word	TIM1_UP_TIM16_IRQHandler
-	.word	TIM1_TRG_COM_TIM17_IRQHandler
-	.word	TIM1_CC_IRQHandler
-	.word	TIM2_IRQHandler
-	.word	TIM3_IRQHandler
-	.word	TIM4_IRQHandler
-	.word	I2C1_EV_IRQHandler
-	.word	I2C1_ER_IRQHandler
-	.word	I2C2_EV_IRQHandler
-	.word	I2C2_ER_IRQHandler
-	.word	SPI1_IRQHandler
-	.word	SPI2_IRQHandler
-	.word	USART1_IRQHandler
-	.word	USART2_IRQHandler
-	.word	USART3_IRQHandler
-	.word	EXTI15_10_IRQHandler
-	.word	RTC_Alarm_IRQHandler
-	.word	USBWakeUp_IRQHandler
-	.word	TIM8_BRK_IRQHandler
-	.word	TIM8_UP_IRQHandler
-	.word	TIM8_TRG_COM_IRQHandler
-	.word	TIM8_CC_IRQHandler
-	.word	0
-	.word	0
-	.word	LPTIM1_IRQHandler
-	.word	0
-	.word	SPI3_IRQHandler
-	.word	UART4_IRQHandler
-	.word	0
-	.word	TIM6_DAC_IRQHandler
-	.word	TIM7_IRQHandler
-	.word	DMA2_Channel1_IRQHandler
-	.word	DMA2_Channel2_IRQHandler
-	.word	DMA2_Channel3_IRQHandler
-	.word	DMA2_Channel4_IRQHandler
-	.word	DMA2_Channel5_IRQHandler
-	.word	0
-	.word	0
-	.word	UCPD1_IRQHandler
-	.word	COMP1_2_3_IRQHandler
-	.word	COMP4_IRQHandler
-	.word	0
-	.word	0
-	.word	0
-	.word	0
-	.word	0
-	.word	0
-	.word	0
-	.word	0
-	.word	0
-	.word	CRS_IRQHandler
-	.word	SAI1_IRQHandler
-	.word	0
-	.word	0
-	.word	0
-	.word	0
-	.word	FPU_IRQHandler
-	.word	0
-	.word	0
-	.word	0
-	.word	0
-	.word	0
-	.word	0
-	.word	0
-	.word	0
-	.word	RNG_IRQHandler
-	.word	LPUART1_IRQHandler
-	.word	I2C3_EV_IRQHandler
-	.word	I2C3_ER_IRQHandler
-	.word	DMAMUX_OVR_IRQHandler
-	.word	0
-	.word	0
-	.word	DMA2_Channel6_IRQHandler
-	.word	0
-	.word	0
-	.word	CORDIC_IRQHandler
-	.word	FMAC_IRQHandler
-
-	.size	g_pfnVectors, .-g_pfnVectors
-
-/*******************************************************************************
-*
-* Provide weak aliases for each Exception handler to the Default_Handler.
-* As they are weak aliases, any function with the same name will override
-* this definition.
-*
+* 
 *******************************************************************************/
-
-	.weak	NMI_Handler
-	.thumb_set NMI_Handler,Default_Handler
-
-	.weak	HardFault_Handler
-	.thumb_set HardFault_Handler,Default_Handler
-
-	.weak	MemManage_Handler
-	.thumb_set MemManage_Handler,Default_Handler
-
-	.weak	BusFault_Handler
-	.thumb_set BusFault_Handler,Default_Handler
-
-	.weak	UsageFault_Handler
-	.thumb_set UsageFault_Handler,Default_Handler
-
-	.weak	SVC_Handler
-	.thumb_set SVC_Handler,Default_Handler
-
-	.weak	DebugMon_Handler
-	.thumb_set DebugMon_Handler,Default_Handler
-
-	.weak	PendSV_Handler
-	.thumb_set PendSV_Handler,Default_Handler
-
-	.weak	SysTick_Handler
-	.thumb_set SysTick_Handler,Default_Handler
-
-	.weak	WWDG_IRQHandler
-	.thumb_set WWDG_IRQHandler,Default_Handler
-
-	.weak	PVD_PVM_IRQHandler
-	.thumb_set PVD_PVM_IRQHandler,Default_Handler
-
-	.weak	RTC_TAMP_LSECSS_IRQHandler
-	.thumb_set RTC_TAMP_LSECSS_IRQHandler,Default_Handler
-
-	.weak	RTC_WKUP_IRQHandler
-	.thumb_set RTC_WKUP_IRQHandler,Default_Handler
-
-	.weak	FLASH_IRQHandler
-	.thumb_set FLASH_IRQHandler,Default_Handler
-
-	.weak	RCC_IRQHandler
-	.thumb_set RCC_IRQHandler,Default_Handler
-
-	.weak	EXTI0_IRQHandler
-	.thumb_set EXTI0_IRQHandler,Default_Handler
-
-	.weak	EXTI1_IRQHandler
-	.thumb_set EXTI1_IRQHandler,Default_Handler
-
-	.weak	EXTI2_IRQHandler
-	.thumb_set EXTI2_IRQHandler,Default_Handler
-
-	.weak	EXTI3_IRQHandler
-	.thumb_set EXTI3_IRQHandler,Default_Handler
-
-	.weak	EXTI4_IRQHandler
-	.thumb_set EXTI4_IRQHandler,Default_Handler
-
-	.weak	DMA1_Channel1_IRQHandler
-	.thumb_set DMA1_Channel1_IRQHandler,Default_Handler
-
-	.weak	DMA1_Channel2_IRQHandler
-	.thumb_set DMA1_Channel2_IRQHandler,Default_Handler
-
-	.weak	DMA1_Channel3_IRQHandler
-	.thumb_set DMA1_Channel3_IRQHandler,Default_Handler
-
-	.weak	DMA1_Channel4_IRQHandler
-	.thumb_set DMA1_Channel4_IRQHandler,Default_Handler
-
-	.weak	DMA1_Channel5_IRQHandler
-	.thumb_set DMA1_Channel5_IRQHandler,Default_Handler
-
-	.weak	DMA1_Channel6_IRQHandler
-	.thumb_set DMA1_Channel6_IRQHandler,Default_Handler
-
-	.weak	ADC1_2_IRQHandler
-	.thumb_set ADC1_2_IRQHandler,Default_Handler
-
-	.weak	USB_HP_IRQHandler
-	.thumb_set USB_HP_IRQHandler,Default_Handler
-
-	.weak	USB_LP_IRQHandler
-	.thumb_set USB_LP_IRQHandler,Default_Handler
-
-	.weak	FDCAN1_IT0_IRQHandler
-	.thumb_set FDCAN1_IT0_IRQHandler,Default_Handler
-
-	.weak	FDCAN1_IT1_IRQHandler
-	.thumb_set FDCAN1_IT1_IRQHandler,Default_Handler
-
-	.weak	EXTI9_5_IRQHandler
-	.thumb_set EXTI9_5_IRQHandler,Default_Handler
-
-	.weak	TIM1_BRK_TIM15_IRQHandler
-	.thumb_set TIM1_BRK_TIM15_IRQHandler,Default_Handler
-
-	.weak	TIM1_UP_TIM16_IRQHandler
-	.thumb_set TIM1_UP_TIM16_IRQHandler,Default_Handler
-
-	.weak	TIM1_TRG_COM_TIM17_IRQHandler
-	.thumb_set TIM1_TRG_COM_TIM17_IRQHandler,Default_Handler
-
-	.weak	TIM1_CC_IRQHandler
-	.thumb_set TIM1_CC_IRQHandler,Default_Handler
-
-	.weak	TIM2_IRQHandler
-	.thumb_set TIM2_IRQHandler,Default_Handler
-
-	.weak	TIM3_IRQHandler
-	.thumb_set TIM3_IRQHandler,Default_Handler
-
-	.weak	TIM4_IRQHandler
-	.thumb_set TIM4_IRQHandler,Default_Handler
-
-	.weak	I2C1_EV_IRQHandler
-	.thumb_set I2C1_EV_IRQHandler,Default_Handler
-
-	.weak	I2C1_ER_IRQHandler
-	.thumb_set I2C1_ER_IRQHandler,Default_Handler
-
-	.weak	I2C2_EV_IRQHandler
-	.thumb_set I2C2_EV_IRQHandler,Default_Handler
-
-	.weak	I2C2_ER_IRQHandler
-	.thumb_set I2C2_ER_IRQHandler,Default_Handler
-
-	.weak	SPI1_IRQHandler
-	.thumb_set SPI1_IRQHandler,Default_Handler
-
-	.weak	SPI2_IRQHandler
-	.thumb_set SPI2_IRQHandler,Default_Handler
-
-	.weak	USART1_IRQHandler
-	.thumb_set USART1_IRQHandler,Default_Handler
-
-	.weak	USART2_IRQHandler
-	.thumb_set USART2_IRQHandler,Default_Handler
-
-	.weak	USART3_IRQHandler
-	.thumb_set USART3_IRQHandler,Default_Handler
-
-	.weak	EXTI15_10_IRQHandler
-	.thumb_set EXTI15_10_IRQHandler,Default_Handler
-
-	.weak	RTC_Alarm_IRQHandler
-	.thumb_set RTC_Alarm_IRQHandler,Default_Handler
-
-	.weak	USBWakeUp_IRQHandler
-	.thumb_set USBWakeUp_IRQHandler,Default_Handler
-
-	.weak	TIM8_BRK_IRQHandler
-	.thumb_set TIM8_BRK_IRQHandler,Default_Handler
-
-	.weak	TIM8_UP_IRQHandler
-	.thumb_set TIM8_UP_IRQHandler,Default_Handler
-
-	.weak	TIM8_TRG_COM_IRQHandler
-	.thumb_set TIM8_TRG_COM_IRQHandler,Default_Handler
-
-	.weak	TIM8_CC_IRQHandler
-	.thumb_set TIM8_CC_IRQHandler,Default_Handler
-
-	.weak	LPTIM1_IRQHandler
-	.thumb_set LPTIM1_IRQHandler,Default_Handler
-
-	.weak	SPI3_IRQHandler
-	.thumb_set SPI3_IRQHandler,Default_Handler
-
-	.weak	UART4_IRQHandler
-	.thumb_set UART4_IRQHandler,Default_Handler
-
-	.weak	TIM6_DAC_IRQHandler
-	.thumb_set TIM6_DAC_IRQHandler,Default_Handler
-
-	.weak	TIM7_IRQHandler
-	.thumb_set TIM7_IRQHandler,Default_Handler
-
-	.weak	DMA2_Channel1_IRQHandler
-	.thumb_set DMA2_Channel1_IRQHandler,Default_Handler
-
-	.weak	DMA2_Channel2_IRQHandler
-	.thumb_set DMA2_Channel2_IRQHandler,Default_Handler
-
-	.weak	DMA2_Channel3_IRQHandler
-	.thumb_set DMA2_Channel3_IRQHandler,Default_Handler
-
-	.weak	DMA2_Channel4_IRQHandler
-	.thumb_set DMA2_Channel4_IRQHandler,Default_Handler
-
-	.weak	DMA2_Channel5_IRQHandler
-	.thumb_set DMA2_Channel5_IRQHandler,Default_Handler
-
-	.weak	UCPD1_IRQHandler
-	.thumb_set UCPD1_IRQHandler,Default_Handler
-
-	.weak	COMP1_2_3_IRQHandler
-	.thumb_set COMP1_2_3_IRQHandler,Default_Handler
-
-	.weak	COMP4_IRQHandler
-	.thumb_set COMP4_IRQHandler,Default_Handler
-
-	.weak	CRS_IRQHandler
-	.thumb_set CRS_IRQHandler,Default_Handler
-
-	.weak	SAI1_IRQHandler
-	.thumb_set SAI1_IRQHandler,Default_Handler
-
-	.weak	FPU_IRQHandler
-	.thumb_set FPU_IRQHandler,Default_Handler
-
-	.weak	RNG_IRQHandler
-	.thumb_set RNG_IRQHandler,Default_Handler
-
-	.weak	LPUART1_IRQHandler
-	.thumb_set LPUART1_IRQHandler,Default_Handler
-
-	.weak	I2C3_EV_IRQHandler
-	.thumb_set I2C3_EV_IRQHandler,Default_Handler
-
-	.weak	I2C3_ER_IRQHandler
-	.thumb_set I2C3_ER_IRQHandler,Default_Handler
-
-	.weak	DMAMUX_OVR_IRQHandler
-	.thumb_set DMAMUX_OVR_IRQHandler,Default_Handler
-
-	.weak	DMA2_Channel6_IRQHandler
-	.thumb_set DMA2_Channel6_IRQHandler,Default_Handler
-
-	.weak	CORDIC_IRQHandler
-	.thumb_set CORDIC_IRQHandler,Default_Handler
-
-	.weak	FMAC_IRQHandler
-	.thumb_set FMAC_IRQHandler,Default_Handler
-
+   .section  .isr_vector,"a",%progbits
+  .type  g_pfnVectors, %object
+  .size  g_pfnVectors, .-g_pfnVectors
+   
+   
+g_pfnVectors:
+  .word  _estack
+  .word  Reset_Handler
+
+  .word  NMI_Handler
+  .word  HardFault_Handler
+  .word  MemManage_Handler
+  .word  BusFault_Handler
+  .word  UsageFault_Handler
+  .word  0
+  .word  0
+  .word  0
+  .word  0
+  .word  SVC_Handler
+  .word  DebugMon_Handler
+  .word  0
+  .word  PendSV_Handler
+  .word  SysTick_Handler
+
+
+  .word IRQ_Trampoline_0
+  .word IRQ_Trampoline_1
+  .word IRQ_Trampoline_2
+  .word IRQ_Trampoline_3
+  .word IRQ_Trampoline_4
+  .word IRQ_Trampoline_5
+  .word IRQ_Trampoline_6
+  .word IRQ_Trampoline_7
+  .word IRQ_Trampoline_8
+  .word IRQ_Trampoline_9
+  .word IRQ_Trampoline_10
+  .word IRQ_Trampoline_11
+  .word IRQ_Trampoline_12
+  .word IRQ_Trampoline_13
+  .word IRQ_Trampoline_14
+  .word IRQ_Trampoline_15
+  .word IRQ_Trampoline_16
+  .word IRQ_Trampoline_17
+  .word IRQ_Trampoline_18
+  .word IRQ_Trampoline_19
+  .word IRQ_Trampoline_20
+  .word IRQ_Trampoline_21
+  .word IRQ_Trampoline_22
+  .word IRQ_Trampoline_23
+  .word IRQ_Trampoline_24
+  .word IRQ_Trampoline_25
+  .word IRQ_Trampoline_26
+  .word IRQ_Trampoline_27
+  .word IRQ_Trampoline_28
+  .word IRQ_Trampoline_29
+  .word IRQ_Trampoline_30
+  .word IRQ_Trampoline_31
+  .word IRQ_Trampoline_32
+  .word IRQ_Trampoline_33
+  .word IRQ_Trampoline_34
+  .word IRQ_Trampoline_35
+  .word IRQ_Trampoline_36
+  .word IRQ_Trampoline_37
+  .word IRQ_Trampoline_38
+  .word IRQ_Trampoline_39
+  .word IRQ_Trampoline_40
+  .word IRQ_Trampoline_41
+  .word IRQ_Trampoline_42
+  .word IRQ_Trampoline_43
+  .word IRQ_Trampoline_44
+  .word IRQ_Trampoline_45
+  .word IRQ_Trampoline_46
+  .word IRQ_Trampoline_47
+  .word IRQ_Trampoline_48
+  .word IRQ_Trampoline_49
+  .word IRQ_Trampoline_50
+  .word IRQ_Trampoline_51
+  .word IRQ_Trampoline_52
+  .word IRQ_Trampoline_53
+  .word IRQ_Trampoline_54
+  .word IRQ_Trampoline_55
+  .word IRQ_Trampoline_56
+  .word IRQ_Trampoline_57
+  .word IRQ_Trampoline_58
+  .word IRQ_Trampoline_59
+  .word IRQ_Trampoline_60
+  .word IRQ_Trampoline_61
+  .word IRQ_Trampoline_62
+  .word IRQ_Trampoline_63
+  .word IRQ_Trampoline_64
+  .word IRQ_Trampoline_65
+  .word IRQ_Trampoline_66
+  .word IRQ_Trampoline_67
+  .word IRQ_Trampoline_68
+  .word IRQ_Trampoline_69
+  .word IRQ_Trampoline_70
+  .word IRQ_Trampoline_71
+  .word IRQ_Trampoline_72
+  .word IRQ_Trampoline_73
+  .word IRQ_Trampoline_74
+  .word IRQ_Trampoline_75
+  .word IRQ_Trampoline_76
+  .word IRQ_Trampoline_77
+  .word IRQ_Trampoline_78
+  .word IRQ_Trampoline_79
+  .word IRQ_Trampoline_80
+  .word IRQ_Trampoline_81
+  .word IRQ_Trampoline_82
+  .word IRQ_Trampoline_83
+  .word IRQ_Trampoline_84
+  .word IRQ_Trampoline_85
+  .word IRQ_Trampoline_86
+  .word IRQ_Trampoline_87
+  .word IRQ_Trampoline_88
+  .word IRQ_Trampoline_89
+  .word IRQ_Trampoline_90
+  .word IRQ_Trampoline_91
+  .word IRQ_Trampoline_92
+  .word IRQ_Trampoline_93
+  .word IRQ_Trampoline_94
+  .word IRQ_Trampoline_95
+  .word IRQ_Trampoline_96
+  .word IRQ_Trampoline_97
+  .word IRQ_Trampoline_98
+  .word IRQ_Trampoline_99
+  .word IRQ_Trampoline_100
+  .word IRQ_Trampoline_101
+  
