@@ -13,7 +13,6 @@ endif()
 
 set(CMAKE_PROJECT_NAME ir-remote)
 
-include("cmake/gcc-arm-none-eabi.cmake")
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 
