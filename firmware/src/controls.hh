@@ -8,7 +8,7 @@ namespace IRRemote
 {
 
 class Controls {
-	static inline __attribute__((section(".noncachable"))) uint16_t adc_buffer[2]; // pad to 32-bits
+	static inline __attribute__((section(".noncachable"))) std::array<uint16_t, 1> adc_buffer; // pad to 32-bits
 
 	mdrivlib::AdcDmaPeriph<Board::AdcConf> adc{adc_buffer, Board::AdcChans};
 

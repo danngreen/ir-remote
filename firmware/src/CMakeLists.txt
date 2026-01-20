@@ -30,12 +30,11 @@ target_compile_options(g431_arch INTERFACE
           -fdata-sections
           -ffunction-sections
           -fno-common
-          -ffreestanding
           -fno-unwind-tables
           -mcpu=cortex-m4 
           -mfpu=fpv4-sp-d16 
           -mfloat-abi=hard
-          -mthumb
+          # -mthumb
           -nostartfiles
           -nostdlib
           -Wdouble-promotion
@@ -55,9 +54,13 @@ target_compile_options(g431_arch INTERFACE
 target_link_options(g431_arch INTERFACE
     -Wl,--gc-sections
     -nostdlib
-    -mfloat-abi=hard
+      -mcpu=cortex-m4 
+      -mfpu=fpv4-sp-d16 
+      -mfloat-abi=hard
     # ${ARCH_FLAGS}
 )
+
+target_link_libraries(STM32_Drivers PRIVATE g431_arch)
 
 
 # Main
@@ -66,10 +69,13 @@ add_executable(main.elf)
 target_sources(main.elf PRIVATE
     ${root}/src/main.cc
     ${root}/src/console.cc
-    ${root}/src/system_stm32g4xx.c
+    ${root}/src/startup_stm32g431xx.s
+    # ${root}/src/system_stm32g4xx.c
     # ${root}/lib/mdrivlib/drivers/hal_handlers.cc
     ${root}/src/libc_stub.c
     ${root}/src/libcpp_stub.cc
+
+    ${root}/lib/mdrivlib/drivers/pin.cc
 )
 
 target_compile_definitions(main.elf PRIVATE
@@ -79,8 +85,7 @@ target_compile_definitions(main.elf PRIVATE
 target_include_directories(main.elf PRIVATE
     ${root}/src
     ${root}/lib/mdrivlib
-    ${root}/lib/mdrivlib/target/stm32f7xx #TODO: g4
-    ${root}/lib/mdrivlib/target/stm32f746 #TODO: g431
+    ${root}/lib/mdrivlib/target/stm32g4xx
     ${root}/lib/CMSIS/Device/ST/STM32G4xx/Include
     ${root}/lib/STM32G4xx_HAL_Driver/Inc
 )

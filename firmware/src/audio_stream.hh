@@ -1,7 +1,6 @@
 #pragma once
 
 #include "audio_stream_conf.hh"
-#include "codec_conf.hh"
 #include "drivers/codec_PCM3060.hh"
 #include "drivers/i2c.hh"
 #include <functional>

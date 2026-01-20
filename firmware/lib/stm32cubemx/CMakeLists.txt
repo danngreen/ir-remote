@@ -23,14 +23,15 @@ target_compile_definitions(stm32cubemx INTERFACE
 add_library(STM32_Drivers OBJECT)
 target_sources(STM32_Drivers PRIVATE
     ${CMAKE_SOURCE_DIR}/src/system_stm32g4xx.c
+    ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c
     ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_sai.c
     ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_sai_ex.c
     ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c
     ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c
     ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c
-    ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c
-    ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c
-    ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c
+    # ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c
+    # ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c
+    # ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c
     ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c
     ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c
     ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c
@@ -40,6 +41,7 @@ target_sources(STM32_Drivers PRIVATE
     ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c
     ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c
     ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c
+    ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_usart.c
 )
 
 target_link_libraries(STM32_Drivers PUBLIC stm32cubemx)
