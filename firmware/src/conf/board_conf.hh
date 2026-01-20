@@ -28,7 +28,7 @@ const I2CConfig codec_i2c_conf = {
 			.SCLH = 0x47,
 			.SDADEL = 0x4,
 			.SCLDEL = 0,
-			.PRESC = 0x2,
+			.PRESC = 0x5,
 		},
 	.priority1 = 0,
 	.priority2 = 1,
@@ -101,16 +101,20 @@ constexpr inline PinDef Debug2{GPIO::A, PinNum::_5};
 
 // ADC2 IN12
 constexpr std::array<AdcChannelConf, 1> AdcChans = {
-	{{{GPIO::B, PinNum::_2}, AdcChanNum::_12, 0, mdrivlib::AdcSamplingTime::_24Cycles}},
+	{{{GPIO::B, PinNum::_2}, AdcChanNum::_12, ADC_REGULAR_RANK_1, mdrivlib::AdcSamplingTime::_24Cycles}},
 };
 
 struct AdcConf : mdrivlib::DefaultAdcPeriphConf {
 	static constexpr auto resolution = mdrivlib::AdcResolution::Bits12;
 	static constexpr auto adc_periph_num = mdrivlib::AdcPeriphNum::_2;
-	static constexpr auto oversample = false;
-	static constexpr auto clock_div = mdrivlib::AdcClockSourceDiv::APBClk_Div4;
+	static constexpr auto oversample = true;
 
-	static constexpr bool enable_end_of_sequence_isr = false;
+	static constexpr uint32_t oversampling_ratio = 256;
+	static constexpr auto oversampling_right_bitshift = mdrivlib::Shift8Right;
+
+	static constexpr auto clock_div = mdrivlib::AdcClockSourceDiv::APBClk_Div2;
+
+	static constexpr bool enable_end_of_sequence_isr = true;
 	static constexpr bool enable_end_of_conversion_isr = false;
 
 	struct DmaConf : mdrivlib::DefaultAdcPeriphConf::DmaConf {
