@@ -13,8 +13,9 @@ IRRemote::System _init;
 } // namespace
 
 int main() {
-	using AudioInBlock = AudioStreamConf::AudioInBlock;
-	using AudioOutBlock = AudioStreamConf::AudioOutBlock;
+	// using AudioInBlock = AudioStreamConf::AudioInBlock;
+	// using AudioOutBlock = AudioStreamConf::AudioOutBlock;
+	mdrivlib::RCC_Enable::GPIOA_::set();
 
 	IRRemote::Controls controls;
 	controls.start();
@@ -38,7 +39,24 @@ int main() {
 	// controls.start();
 	// audio.start();
 
+	mdrivlib::Pin mot1{mdrivlib::GPIO::A, mdrivlib::PinNum::_8, mdrivlib::PinMode::Output};
+	mdrivlib::Pin mot2{mdrivlib::GPIO::A, mdrivlib::PinNum::_9, mdrivlib::PinMode::Output};
+
 	while (true) {
 		__NOP();
+
+		mot1.high();
+		HAL_Delay(30);
+		mot1.low();
+
+		HAL_Delay(300);
+
+		mot2.high();
+		HAL_Delay(30);
+		mot2.low();
+
+		HAL_Delay(300);
+
+		// HAL_Delay(1000);
 	}
 }

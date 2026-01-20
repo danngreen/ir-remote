@@ -110,7 +110,7 @@ struct AdcConf : mdrivlib::DefaultAdcPeriphConf {
 	static constexpr auto oversample = false;
 	static constexpr auto clock_div = mdrivlib::AdcClockSourceDiv::APBClk_Div4;
 
-	static constexpr bool enable_end_of_sequence_isr = true;
+	static constexpr bool enable_end_of_sequence_isr = false;
 	static constexpr bool enable_end_of_conversion_isr = false;
 
 	struct DmaConf : mdrivlib::DefaultAdcPeriphConf::DmaConf {
