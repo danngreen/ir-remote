@@ -1,4 +1,4 @@
-#include "conf/board_conf.hh"
+#include "audio_stream.hh"
 #include "controls.hh"
 #include "debug.hh"
 #include "printf.h"
@@ -13,50 +13,50 @@ IRRemote::System _init;
 } // namespace
 
 int main() {
-	// using AudioInBlock = AudioStreamConf::AudioInBlock;
-	// using AudioOutBlock = AudioStreamConf::AudioOutBlock;
-	mdrivlib::RCC_Enable::GPIOA_::set();
 
 	IRRemote::Controls controls;
-	controls.start();
-
-	// printf_("Hello\n");
-
-	// if (Board::PingButton::PinT::read() && Board::RevButton::PinT::read()) {
-	// 	HAL_Delay(50);
-	// 	if (Board::PingButton::PinT::read() && Board::RevButton::PinT::read())
-	// 		HWTests::run(controls);
-	// }
-
-	// Params params{controls, flags};
-	// LoopingDelay looping_delay{params, flags};
-	// AudioStream audio([&looping_delay, &params](const AudioInBlock &in, AudioOutBlock &out) {
-	// 	params.update();
-	// 	looping_delay.update(in, out);
-	// });
-
-	// params.start();
 	// controls.start();
-	// audio.start();
+
+	IRRemote::AudioStream audio([](const AudioStreamConf::AudioInBlock &in, AudioStreamConf::AudioOutBlock &out) {
+		Debug::Pin0::high();
+		Debug::Pin0::low();
+		// params.update();
+		// looping_delay.update(in, out);
+	});
+
+	audio.start();
 
 	mdrivlib::Pin mot1{mdrivlib::GPIO::A, mdrivlib::PinNum::_8, mdrivlib::PinMode::Output};
 	mdrivlib::Pin mot2{mdrivlib::GPIO::A, mdrivlib::PinNum::_9, mdrivlib::PinMode::Output};
 
 	while (true) {
 		__NOP();
+	}
 
-		mot1.high();
-		HAL_Delay(30);
-		mot1.low();
+	while (false) {
+		volatile int x = 600;
+		while (x--)
+			;
 
-		HAL_Delay(300);
+		// while (controls.read_adc() < 0x1000 || controls.read_adc() > 0x1008) {
 
-		mot2.high();
-		HAL_Delay(30);
-		mot2.low();
+		auto adc = controls.read_adc();
 
-		HAL_Delay(300);
+		if (adc > 0x1040) {
+			mot1.high();
+			volatile int x = 2000;
+			while (x--)
+				;
+			mot1.low();
+		}
 
-		// HAL_Delay(1000);
+		else if (adc < 0x0FC0)
+		{
+			mot2.high();
+			volatile int x = 2000;
+			while (x--)
+				;
+			mot2.low();
+		}
 	}
 }

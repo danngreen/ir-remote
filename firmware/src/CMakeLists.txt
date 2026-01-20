@@ -70,13 +70,15 @@ target_sources(main.elf PRIVATE
     ${root}/src/main.cc
     ${root}/src/console.cc
     ${root}/src/startup_stm32g431xx.s
-    # ${root}/src/system_stm32g4xx.c
     ${root}/lib/mdrivlib/drivers/hal_handlers.cc
     ${root}/src/libc_stub.c
     ${root}/src/libcpp_stub.cc
 
     ${root}/lib/mdrivlib/drivers/pin.cc
+    ${root}/lib/mdrivlib/drivers/i2c.cc
+    ${root}/lib/mdrivlib/drivers/codec_TLV320AIC3204.cc
     ${root}/lib/mdrivlib/target/stm32g4xx/drivers/interrupt_handler.cc
+    ${root}/lib/mdrivlib/target/stm32g4xx/drivers/sai_tdm.cc
 )
 
 target_compile_definitions(main.elf PRIVATE
