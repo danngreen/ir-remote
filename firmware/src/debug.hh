@@ -11,8 +11,8 @@ struct Disabled {
 };
 
 // using Pin0 = Disabled;
-using Pin0 = mdrivlib::FPin<IRRemote::Board::Debug1.gpio, IRRemote::Board::Debug1.pin>;
-using Pin1 = mdrivlib::FPin<IRRemote::Board::Debug2.gpio, IRRemote::Board::Debug2.pin>;
+using Pin0 = mdrivlib::PinF<IRRemote::Board::Debug1, mdrivlib::PinMode::Output>;
+using Pin1 = mdrivlib::PinF<IRRemote::Board::Debug2, mdrivlib::PinMode::Output>;
 using Pin2 = Disabled;
 using Pin3 = Disabled;
 
