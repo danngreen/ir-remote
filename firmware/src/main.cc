@@ -3,6 +3,7 @@
 #include "debug.hh"
 #include "printf.h"
 #include "system.hh"
+#include "util/zip.hh"
 
 // #include "test_audio.hh"
 
@@ -15,23 +16,34 @@ IRRemote::System _init;
 int main() {
 
 	IRRemote::Controls controls;
-	// controls.start();
+	controls.start();
 
-	IRRemote::AudioStream audio([](const AudioStreamConf::AudioInBlock &in, AudioStreamConf::AudioOutBlock &out) {
-		Debug::Pin0::high();
-		Debug::Pin0::low();
-		// params.update();
-		// looping_delay.update(in, out);
-	});
+	float vol = 0.25f;
+
+	IRRemote::AudioStream audio(
+		[&](const AudioStreamConf::AudioInBlock &inblock, AudioStreamConf::AudioOutBlock &outblock) {
+			Debug::Pin0::high();
+			for (auto [in, out] : zip(inblock, outblock)) {
+				auto in_L = in.scale_input_chan(0);
+				out.set_scaled_output(0, in_L * vol);
+
+				auto in_R = in.scale_input_chan(1);
+				out.set_scaled_output(1, in_R * vol);
+			}
+			Debug::Pin0::low();
+		});
 
 	audio.start();
 
+	while (true) {
+		auto adc = controls.read_adc();
+		vol = adc / 4096.f;
+	}
+}
+
+void motor_control(IRRemote::Controls &controls) {
 	mdrivlib::Pin mot1{mdrivlib::GPIO::A, mdrivlib::PinNum::_8, mdrivlib::PinMode::Output};
 	mdrivlib::Pin mot2{mdrivlib::GPIO::A, mdrivlib::PinNum::_9, mdrivlib::PinMode::Output};
-
-	while (true) {
-		__NOP();
-	}
 
 	while (false) {
 		volatile int x = 600;
