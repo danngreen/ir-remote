@@ -25,8 +25,8 @@ target_compile_definitions(g431_arch INTERFACE
 
 target_compile_options(g431_arch INTERFACE
           $<$<CONFIG:Debug>:-O0 -g3>
-          $<$<CONFIG:Release>:-Ofast>
-          $<$<CONFIG:RelWithDebInfo>:-Ofast -g3>
+          $<$<CONFIG:Release>:-O2>
+          $<$<CONFIG:RelWithDebInfo>:-O2 -g3>
           -fdata-sections
           -ffunction-sections
           -fno-common
