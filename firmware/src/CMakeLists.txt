@@ -72,6 +72,7 @@ target_sources(main.elf PRIVATE
     ${root}/src/console.cc
     ${root}/src/startup_stm32g431xx.s
     ${root}/lib/mdrivlib/drivers/hal_handlers.cc
+    ${root}/lib/printf/printf.c
     ${root}/src/libc_stub.c
     ${root}/src/libcpp_stub.cc
 
