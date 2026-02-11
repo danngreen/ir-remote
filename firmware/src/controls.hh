@@ -5,7 +5,7 @@
 #include "util/filter.hh"
 #include <cstdint>
 
-namespace IRRemote
+namespace RemoteVolume
 {
 
 class Controls {
@@ -31,4 +31,4 @@ public:
 	void update() {
 	}
 };
-} // namespace IRRemote
+} // namespace RemoteVolume

@@ -1,6 +1,6 @@
 #include "controls.hh"
 
-namespace IRRemote
+namespace RemoteVolume
 {
 
 uint16_t Controls::raw_adc() {
@@ -11,4 +11,4 @@ uint16_t Controls::read_adc() {
 	return smooth_adc.val();
 }
 
-} // namespace IRRemote
+} // namespace RemoteVolume

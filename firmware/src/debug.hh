@@ -11,8 +11,8 @@ struct Disabled {
 };
 
 // using Pin0 = Disabled;
-using Pin0 = mdrivlib::PinF<IRRemote::Board::Debug1, mdrivlib::PinMode::Output>;
-using Pin1 = mdrivlib::PinF<IRRemote::Board::Debug2, mdrivlib::PinMode::Output>;
+using Pin0 = mdrivlib::PinF<RemoteVolume::Board::Debug1, mdrivlib::PinMode::Output>;
+using Pin1 = mdrivlib::PinF<RemoteVolume::Board::Debug2, mdrivlib::PinMode::Output>;
 using Pin2 = Disabled;
 using Pin3 = Disabled;
 

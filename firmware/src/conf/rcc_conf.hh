@@ -1,7 +1,7 @@
 #pragma once
 #include "drivers/stm32xx.h"
 
-namespace IRRemote
+namespace RemoteVolume
 {
 
 const RCC_OscInitTypeDef osc_conf{
@@ -34,4 +34,4 @@ const RCC_PeriphCLKInitTypeDef rcc_periph_conf = {
 	.Adc12ClockSelection = RCC_ADC12CLKSOURCE_SYSCLK,
 };
 
-} // namespace IRRemote
+} // namespace RemoteVolume

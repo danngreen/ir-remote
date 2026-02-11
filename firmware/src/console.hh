@@ -3,9 +3,9 @@
 #include "drivers/uart.hh"
 
 constexpr inline UartConf ConsoleUartConf{
-	.base_addr = IRRemote::Board::ConsoleUartBaseAddr,
-	.TXPin = IRRemote::Board::ConsoleUartTX,
-	.RXPin = IRRemote::Board::ConsoleUartRX,
+	.base_addr = RemoteVolume::Board::ConsoleUartBaseAddr,
+	.TXPin = RemoteVolume::Board::ConsoleUartTX,
+	.RXPin = RemoteVolume::Board::ConsoleUartRX,
 	.mode = UartConf::Mode::TXRX,
 	.baud = 115200,
 	.wordlen = 8,

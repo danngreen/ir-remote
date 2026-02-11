@@ -5,7 +5,7 @@
 #include "drivers/system.hh"
 #include "drivers/system_clocks.hh"
 
-namespace IRRemote
+namespace RemoteVolume
 {
 
 struct System {
@@ -26,4 +26,4 @@ struct System {
 	}
 };
 
-} // namespace IRRemote
+} // namespace RemoteVolume

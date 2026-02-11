@@ -6,7 +6,7 @@
 #include "drivers/i2c.hh"
 #include "util/callable.hh"
 
-namespace IRRemote
+namespace RemoteVolume
 {
 
 struct AudioStream {
@@ -59,4 +59,4 @@ private:
 	}
 };
 
-} // namespace IRRemote
+} // namespace RemoteVolume

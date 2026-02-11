@@ -4,7 +4,7 @@
 #include "drivers/i2c_config_struct.hh"
 #include "drivers/sai_config_struct.hh"
 
-namespace IRRemote::Board
+namespace RemoteVolume::Board
 {
 
 using mdrivlib::AdcChannelConf;
@@ -130,4 +130,4 @@ struct AdcConf : mdrivlib::DefaultAdcPeriphConf {
 	static constexpr uint16_t min_value = 25;
 };
 
-} // namespace IRRemote::Board
+} // namespace RemoteVolume::Board

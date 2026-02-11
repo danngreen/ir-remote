@@ -11,20 +11,20 @@
 namespace
 {
 // Initialize the system before main()
-IRRemote::System _init;
+RemoteVolume::System _init;
 } // namespace
 
 int main() {
 	printf_("\r\n\r\nSlider Magic\n");
 	printf_("Starting up...\n");
 
-	IRRemote::Controls controls;
+	RemoteVolume::Controls controls;
 	controls.start();
 
 	printf_("ADC started\n");
 	printf_("Raw value: %u / 8191\n", controls.raw_adc());
 
-	IRRemote::AudioStream audio(
+	RemoteVolume::AudioStream audio(
 		[&controls](const AudioStreamConf::AudioInBlock &inblock, AudioStreamConf::AudioOutBlock &outblock) {
 			float vol = controls.read_adc() / 8191.f;
 
@@ -48,7 +48,7 @@ int main() {
 	}
 }
 
-void motor_control(IRRemote::Controls &controls) {
+void motor_control(RemoteVolume::Controls &controls) {
 	mdrivlib::Pin mot1{mdrivlib::GPIO::A, mdrivlib::PinNum::_8, mdrivlib::PinMode::Output};
 	mdrivlib::Pin mot2{mdrivlib::GPIO::A, mdrivlib::PinNum::_9, mdrivlib::PinMode::Output};
 
