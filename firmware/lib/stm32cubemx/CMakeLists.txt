@@ -26,7 +26,7 @@ target_sources(STM32_Drivers PRIVATE
     ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c
     ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c
     ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_sai.c
-    ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_sai_ex.c
+    # ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_sai_ex.c
     ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.c
     ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.c
     ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c
@@ -35,12 +35,12 @@ target_sources(STM32_Drivers PRIVATE
     ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c
     ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c
     ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c
-    ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c
+    # ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c
     ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c
     ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c
     ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c
     ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c
-    ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c
+    # ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c
     ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_usart.c
 )
 
