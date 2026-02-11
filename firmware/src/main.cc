@@ -4,6 +4,7 @@
 #include "printf.h"
 #include "system.hh"
 #include "util/zip.hh"
+#include <cmath>
 
 // #include "test_audio.hh"
 
@@ -14,15 +15,19 @@ IRRemote::System _init;
 } // namespace
 
 int main() {
+	printf_("\r\n\r\nSlider Magic\n");
+	printf_("Starting up...\n");
 
 	IRRemote::Controls controls;
 	controls.start();
 
-	float vol = 0.25f;
+	printf_("ADC started\n");
+	printf_("Raw value: %u / 8191\n", controls.raw_adc());
 
 	IRRemote::AudioStream audio(
-		[&](const AudioStreamConf::AudioInBlock &inblock, AudioStreamConf::AudioOutBlock &outblock) {
-			Debug::Pin0::high();
+		[&controls](const AudioStreamConf::AudioInBlock &inblock, AudioStreamConf::AudioOutBlock &outblock) {
+			float vol = controls.read_adc() / 8191.f;
+
 			for (auto [in, out] : zip(inblock, outblock)) {
 				auto in_L = in.scale_input_chan(0);
 				out.set_scaled_output(0, in_L * vol);
@@ -30,14 +35,16 @@ int main() {
 				auto in_R = in.scale_input_chan(1);
 				out.set_scaled_output(1, in_R * vol);
 			}
-			Debug::Pin0::low();
 		});
+
+	printf_("Audio stream initialized\n");
 
 	audio.start();
 
+	printf_("Audio stream started\n");
+
 	while (true) {
-		auto adc = controls.read_adc();
-		vol = adc / 4096.f;
+		__NOP();
 	}
 }
 
