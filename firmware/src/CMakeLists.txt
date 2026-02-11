@@ -68,6 +68,7 @@ add_executable(main.elf)
 
 target_sources(main.elf PRIVATE
     ${root}/src/main.cc
+    ${root}/src/controls.cc
     ${root}/src/console.cc
     ${root}/src/startup_stm32g431xx.s
     ${root}/lib/mdrivlib/drivers/hal_handlers.cc
