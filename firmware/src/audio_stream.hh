@@ -10,11 +10,8 @@ namespace IRRemote
 {
 
 struct AudioStream {
-	// TODO: Verify this region is non-cacheable on F4
-	alignas(256) static inline
-		__attribute__((section(".noncachable"))) AudioStreamConf::AudioInBuffer audio_in_dma_buffer;
-	alignas(256) static inline
-		__attribute__((section(".noncachable"))) AudioStreamConf::AudioOutBuffer audio_out_dma_buffer;
+	alignas(8) static inline AudioStreamConf::AudioInBuffer audio_in_dma_buffer;
+	alignas(8) static inline AudioStreamConf::AudioOutBuffer audio_out_dma_buffer;
 
 public:
 	using AudioProcessFunction =
