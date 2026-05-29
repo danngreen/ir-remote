@@ -30,5 +30,5 @@ FLASH.ReProgram OFF
 ; --------------------------------------------------------------------------------
 ; Reset the target again
 SYStem.Up
-break main
-go
+;break main
+Go
