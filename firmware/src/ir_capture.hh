@@ -187,7 +187,15 @@ struct IRCapture {
 	}
 
 	Event get_event() {
-		return std::exchange(last_event, Event::None);
+		// last_event is written by the TIM2 capture ISR. A plain read-modify-write
+		// races with it: if a repeat lands between the read and the clear, the clear
+		// wins and the event is dropped (a missing motor pulse). Make the
+		// read-and-clear atomic w.r.t. the ISR.
+		uint32_t primask = __get_PRIMASK();
+		__disable_irq();
+		Event e = std::exchange(last_event, Event::None);
+		__set_PRIMASK(primask);
+		return e;
 	}
 };
 
