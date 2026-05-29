@@ -10,6 +10,7 @@ enum class Event {
 	None,
 	VolumeUp,
 	VolumeDown,
+	Mute,
 };
 
 } // namespace RemoteVolume

@@ -34,17 +34,17 @@ uint16_t Controls::read_adc() {
 	return smooth_adc.val();
 }
 
-void Controls::pulse_up() {
+void Controls::pulse_up(int duration = MotorPulseUs) {
 	mot1.low();
 	mot2.high();
-	delay_us(MotorPulseUs);
+	delay_us(duration);
 	mot2.low();
 }
 
-void Controls::pulse_down() {
+void Controls::pulse_down(int duration = MotorPulseUs) {
 	mot2.low();
 	mot1.high();
-	delay_us(MotorPulseUs);
+	delay_us(duration);
 	mot1.low();
 }
 
@@ -72,6 +72,43 @@ void Controls::process_events() {
 				printf_("DOWN ignored: at min (adc=%u)\n", adc);
 			}
 			break;
+
+		case Event::Mute: {
+			int pulses = 0;
+			if (raw_adc() > 0) {
+				if (raw_adc() <= AdcMute) {
+					pulse_down();
+				} else {
+					if (adc >= AdcMax)
+						pulse_down(50000);
+					else if (adc >= 7000)
+						pulse_down(43000);
+					else if (adc >= 6000)
+						pulse_down(36000);
+					else if (adc >= 5000)
+						pulse_down(33000);
+					else if (adc >= 4000)
+						pulse_down(30000);
+					else if (adc >= 3000)
+						pulse_down(24500);
+					else if (adc >= 2000)
+						pulse_down(20000);
+					else if (adc >= 1000)
+						pulse_down(13000);
+					else if (adc >= 500)
+						pulse_down(6000);
+					else if (adc >= 300)
+						pulse_down(3000);
+
+					HAL_Delay(100);
+					while (raw_adc() > AdcMin) {
+						pulse_down(1000);
+						delay_us(10000);
+					}
+				}
+			}
+			printf_("Mute (adc %u=>%u) pulsed %d\n", adc, raw_adc(), pulses);
+		} break;
 
 		case Event::None:
 			break;

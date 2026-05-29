@@ -7,6 +7,9 @@
 #define NEC_HDR_HIGH_MIN 4000 // 4.5 ms high
 #define NEC_HDR_HIGH_MAX 5000
 
+#define NEC_RPT_HIGH_MIN 2000 // 2.25 ms high => repeat code (button held)
+#define NEC_RPT_HIGH_MAX 3000
+
 #define NEC_BIT_LOW_MIN 400 // 560 us low
 #define NEC_BIT_LOW_MAX 800
 
@@ -20,7 +23,7 @@
 enum nec_state_t { NEC_STATE_IDLE = 0, NEC_STATE_LEAD_LOW, NEC_STATE_LEAD_HIGH, NEC_STATE_BITS };
 
 // enum Code { Down = 0xF7087F80, Up = 0xFD027F80 };
-enum Code { Up = 0xFD020F04, Down = 0xFC030F04 };
+enum Code { Up = 0xFD020F04, Down = 0xFC030F04, Mute = 0xF6090F04 };
 
 static inline bool nec_validate(uint32_t code) {
 	uint8_t addr = code & 0xFF;

@@ -160,6 +160,9 @@ struct IRCapture {
 		else if (code == Code::Down)
 		{
 			last_event = Event::VolumeDown;
+		else if (code == Code::Mute)
+		{
+			last_command = Event::Mute;
 		}
 
 		else

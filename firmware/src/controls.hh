@@ -39,6 +39,7 @@ public:
 	static constexpr uint32_t MotorPulseUs = 3000; // 1 ms
 	// Slider end-stops
 	static constexpr uint16_t AdcMin = 1;
+	static constexpr uint16_t AdcMute = 30;
 	static constexpr uint16_t AdcMax = 8175;
 	// ------------------------------------------------------------------------
 
@@ -57,7 +58,7 @@ public:
 
 private:
 	// mot2 (PA9, "+") drives the slider up; mot1 (PA8, "-") drives it down
-	void pulse_up();
-	void pulse_down();
+	void pulse_up(int duration);
+	void pulse_down(int duration);
 };
 } // namespace RemoteVolume
