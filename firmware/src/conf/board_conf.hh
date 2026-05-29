@@ -100,6 +100,7 @@ constexpr inline PinDef Debug2{GPIO::A, PinNum::_5};
 
 // IR Demod:
 // PA0 (TIM2_CH1, AF1)
+constexpr inline PinDef IRDemod{GPIO::A, PinNum::_0, mdrivlib::PinAF::AltFunc1};
 
 // ADC2 IN12
 constexpr std::array<AdcChannelConf, 1> AdcChans = {

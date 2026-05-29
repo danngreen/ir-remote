@@ -40,7 +40,7 @@ target_sources(STM32_Drivers PRIVATE
     ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c
     ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c
     ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c
-    # ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c
+    ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c
     ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_usart.c
     ${CMAKE_SOURCE_DIR}/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c
 )
