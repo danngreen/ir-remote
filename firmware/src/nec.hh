@@ -19,4 +19,19 @@
 
 enum nec_state_t { NEC_STATE_IDLE = 0, NEC_STATE_LEAD_LOW, NEC_STATE_LEAD_HIGH, NEC_STATE_BITS };
 
-enum Code { Down = 0xF7087F80, Up = 0xFD027F80 };
+// enum Code { Down = 0xF7087F80, Up = 0xFD027F80 };
+enum Code { Up = 0xFD020F04, Down = 0xFC030F04 };
+
+static inline bool nec_validate(uint32_t code) {
+	uint8_t addr = code & 0xFF;
+	uint8_t addr_inv = (code >> 8) & 0xFF;
+	uint8_t cmd = (code >> 16) & 0xFF;
+	uint8_t cmd_inv = (code >> 24) & 0xFF;
+
+	if ((addr ^ addr_inv) != 0xFF || (cmd ^ cmd_inv) != 0xFF) {
+		// checksum failed
+		return false;
+	}
+
+	return true;
+}

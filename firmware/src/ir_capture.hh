@@ -1,7 +1,9 @@
 #pragma once
 #include "board_conf.hh"
+#include "debug.hh"
 #include "drivers/interrupt.hh"
 #include "drivers/pin.hh"
+#include "drivers/rcc.hh"
 #include "event.hh"
 #include "nec.hh"
 #include "printf.h"
@@ -20,15 +22,21 @@ struct IRCapture {
 	uint16_t last_capture = 0;
 	Event last_event = Event::None;
 
+	static inline IRCapture *_instance;
+
 	IRCapture() {
+		_instance = this;
+
 		// TODO: create mdrivlib TimICChannel driver, and a TimICConfig struct
 		mdrivlib::Pin{Board::IRDemod, mdrivlib::PinMode::Alt};
+
+		mdrivlib::RCC_Enable::TIM2_::set();
 
 		TIM_MasterConfigTypeDef sMasterConfig{};
 		TIM_IC_InitTypeDef sConfigIC{};
 
 		timh.Instance = TIM2;
-		timh.Init.Prescaler = 122; // adjust to hit 1MHz timer res
+		timh.Init.Prescaler = 170; // adjust to hit 1MHz timer res
 		timh.Init.CounterMode = TIM_COUNTERMODE_UP;
 		timh.Init.Period = 65535;
 		timh.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
@@ -52,6 +60,8 @@ struct IRCapture {
 		}
 
 		mdrivlib::InterruptManager::register_and_start_isr(TIM2_IRQn, 1, 0, [this]() { HAL_TIM_IRQHandler(&timh); });
+
+		HAL_TIM_IC_Start_IT(&timh, TIM_CHANNEL_1);
 	}
 
 	void process() {
@@ -114,39 +124,32 @@ struct IRCapture {
 					} else if (delta >= NEC_ONE_HIGH_MIN && delta <= NEC_ONE_HIGH_MAX) {
 						nec_code |= (1UL << bit_index);
 					} else {
+						// not reached
 						nec_state = NEC_STATE_IDLE;
 						break;
 					}
 
+					// we get 32 bits
 					bit_index++;
+
 					if (bit_index >= 32) {
-						if (nec_validate(nec_code)) {
-							decode(nec_code);
-						}
+						Debug::Pin0::high();
+						// if (nec_validate(nec_code)) {
+						// 	Debug::Pin1::high();
+						decode(nec_code);
+						// Debug::Pin1::low();
+						// }
 						nec_state = NEC_STATE_IDLE;
 						expecting_low = 0;
 						bit_index = 0;
 						nec_code = 0;
+						Debug::Pin0::low();
 					} else {
 						expecting_low = 1; // next should be low of next bit
 					}
 				}
 				break;
 		}
-	}
-
-	static bool nec_validate(uint32_t code) {
-		uint8_t addr = code & 0xFF;
-		uint8_t addr_inv = (code >> 8) & 0xFF;
-		uint8_t cmd = (code >> 16) & 0xFF;
-		uint8_t cmd_inv = (code >> 24) & 0xFF;
-
-		if ((addr ^ addr_inv) != 0xFF || (cmd ^ cmd_inv) != 0xFF) {
-			// checksum failed
-			return false;
-		}
-
-		return true;
 	}
 
 	void decode(uint32_t code) {
