@@ -83,6 +83,8 @@ const SaiConfig sai_conf = {
 // MOTOR:
 // - PA8 (or TIM1_CH1: AF6)
 // + PA9 (or TIM1_CH2: AF6 or TIM2_CH3 AF10)
+constexpr inline PinDef Motor1{GPIO::A, PinNum::_8};
+constexpr inline PinDef Motor2{GPIO::A, PinNum::_9};
 
 // Console:
 // TX: PA2, USART2, AF7

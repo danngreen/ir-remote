@@ -20,7 +20,7 @@ class Controls {
 	ConsoleEventSource console_events;
 
 public:
-	Controls() = default;
+	Controls();
 
 	uint16_t raw_adc();
 	uint16_t read_adc();
@@ -33,7 +33,13 @@ public:
 		return console_events.get_event();
 	}
 
+	mdrivlib::Pin mot1;
+	mdrivlib::Pin mot2;
+
 	void start() {
+		mot1.low();
+		mot2.low();
+
 		// 829kHz => OS: 12.95kHz = 77us between reads
 		adc.register_callback([this] { smooth_adc.add_val(adc_buffer[0]); });
 
