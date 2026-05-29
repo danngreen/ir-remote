@@ -48,71 +48,159 @@ void Controls::pulse_down(int duration = MotorPulseUs) {
 	mot1.low();
 }
 
-void Controls::process_events() {
-	auto event = get_event();
-	if (event == Event::None)
+void Controls::motor_off() {
+	mot1.low();
+	mot2.low();
+}
+
+void Controls::drive(Event dir) {
+	if (dir == Event::VolumeUp) {
+		mot1.low();
+		mot2.high();
+	} else if (dir == Event::VolumeDown) {
+		mot2.low();
+		mot1.high();
+	}
+}
+
+bool Controls::at_rail(Event dir) {
+	// raw_adc() (not the smoothed value) so we stop promptly at the end stop.
+	const uint16_t adc = raw_adc();
+	if (dir == Event::VolumeUp)
+		return adc >= AdcMax;
+	if (dir == Event::VolumeDown)
+		return adc <= AdcMin;
+	return true;
+}
+
+void Controls::fine_pulse(Event dir) {
+	if (at_rail(dir))
+		return;
+	if (dir == Event::VolumeUp)
+		pulse_up();
+	else if (dir == Event::VolumeDown)
+		pulse_down();
+}
+
+void Controls::cancel_hold() {
+	hold_dir = Event::None;
+	motor_off();
+}
+
+// A VolumeUp/Down event arrived (fresh press, NEC repeat, or console
+// key-autorepeat). The first same-dir event is a tap (one fine pulse); a second
+// one soon after escalates to a continuous hold; further ones refresh the
+// release deadline.
+void Controls::on_dir_event(Event dir, uint32_t now) {
+	if (hold_dir == dir) {
+		hold_deadline_ms = now + HoldReleaseMs; // repeat: keep the hold alive
+	} else if (armed_dir == dir && (now - armed_ms) <= RepeatEngageMs) {
+		hold_dir = dir; // escalate tap -> continuous hold
+		hold_start_ms = now;
+		hold_deadline_ms = now + HoldReleaseMs;
+	} else {
+		cancel_hold(); // fresh tap or direction change
+		fine_pulse(dir);
+		armed_dir = dir;
+		armed_ms = now;
+	}
+}
+
+// Called every main-loop pass. While a hold is active, drives one software-PWM
+// slice whose duty ramps up over HoldRampMs (acceleration), stopping at the rail
+// or once no repeat has refreshed the deadline (button released).
+void Controls::service_hold() {
+	if (hold_dir == Event::None)
 		return;
 
+	const uint32_t now = HAL_GetTick();
+
+	if ((int32_t)(now - hold_deadline_ms) >= 0) { // released
+		cancel_hold();
+		return;
+	}
+
+	if (at_rail(hold_dir)) { // hold position at the end stop, stay engaged
+		motor_off();
+		return;
+	}
+
+	// Ramp duty from HoldDutyMinPct up to HoldDutyMaxPct over HoldRampMs.
+	// (Max <= Min => no ramp, i.e. constant speed at HoldDutyMinPct.)
+	const uint32_t held = now - hold_start_ms;
+	const uint32_t ramp = held < HoldRampMs ? held : HoldRampMs;
+	const uint32_t span = HoldDutyMaxPct > HoldDutyMinPct ? (HoldDutyMaxPct - HoldDutyMinPct) : 0;
+	const uint32_t duty = HoldDutyMinPct + span * ramp / HoldRampMs;
+
+	const uint32_t on_us = HoldPwmPeriodUs * duty / 100;
+	drive(hold_dir);
+	delay_us(on_us);
+	if (on_us < HoldPwmPeriodUs) { // partial duty: off for the rest of the period
+		motor_off();
+		delay_us(HoldPwmPeriodUs - on_us);
+	}
+}
+
+void Controls::do_mute() {
 	const uint16_t adc = read_adc();
-	switch (event) {
-		case Event::VolumeUp:
-			if (adc < AdcMax) {
-				pulse_up();
-				printf_("UP (adc=%u)\n", adc);
-			} else {
-				printf_("UP ignored: at max (adc=%u)\n", adc);
+	int pulses = 0;
+	if (raw_adc() > 0) {
+		if (raw_adc() <= AdcMute) {
+			pulse_down();
+		} else {
+			if (adc >= AdcMax)
+				pulse_down(50000);
+			else if (adc >= 7000)
+				pulse_down(43000);
+			else if (adc >= 6000)
+				pulse_down(36000);
+			else if (adc >= 5000)
+				pulse_down(33000);
+			else if (adc >= 4000)
+				pulse_down(30000);
+			else if (adc >= 3000)
+				pulse_down(24500);
+			else if (adc >= 2000)
+				pulse_down(20000);
+			else if (adc >= 1000)
+				pulse_down(13000);
+			else if (adc >= 500)
+				pulse_down(6000);
+			else if (adc >= 300)
+				pulse_down(3000);
+
+			HAL_Delay(100);
+			while (raw_adc() > AdcMin) {
+				pulse_down(1000);
+				delay_us(10000);
 			}
+		}
+	}
+	printf_("Mute (adc %u=>%u) pulsed %d\n", adc, raw_adc(), pulses);
+}
+
+void Controls::process_events() {
+	const uint32_t now = HAL_GetTick();
+
+	switch (get_event()) {
+		case Event::VolumeUp:
+			on_dir_event(Event::VolumeUp, now);
 			break;
 
 		case Event::VolumeDown:
-			if (adc > AdcMin) {
-				pulse_down();
-				printf_("DOWN (adc=%u)\n", adc);
-			} else {
-				printf_("DOWN ignored: at min (adc=%u)\n", adc);
-			}
+			on_dir_event(Event::VolumeDown, now);
 			break;
 
-		case Event::Mute: {
-			int pulses = 0;
-			if (raw_adc() > 0) {
-				if (raw_adc() <= AdcMute) {
-					pulse_down();
-				} else {
-					if (adc >= AdcMax)
-						pulse_down(50000);
-					else if (adc >= 7000)
-						pulse_down(43000);
-					else if (adc >= 6000)
-						pulse_down(36000);
-					else if (adc >= 5000)
-						pulse_down(33000);
-					else if (adc >= 4000)
-						pulse_down(30000);
-					else if (adc >= 3000)
-						pulse_down(24500);
-					else if (adc >= 2000)
-						pulse_down(20000);
-					else if (adc >= 1000)
-						pulse_down(13000);
-					else if (adc >= 500)
-						pulse_down(6000);
-					else if (adc >= 300)
-						pulse_down(3000);
-
-					HAL_Delay(100);
-					while (raw_adc() > AdcMin) {
-						pulse_down(1000);
-						delay_us(10000);
-					}
-				}
-			}
-			printf_("Mute (adc %u=>%u) pulsed %d\n", adc, raw_adc(), pulses);
-		} break;
+		case Event::Mute:
+			cancel_hold();
+			do_mute();
+			break;
 
 		case Event::None:
 			break;
 	}
+
+	service_hold();
 }
 
 } // namespace RemoteVolume
