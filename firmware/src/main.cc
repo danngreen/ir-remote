@@ -44,7 +44,17 @@ int main() {
 	printf_("Audio stream started\n");
 
 	while (true) {
-		__NOP();
+		// TODO: temporary — print events. Next step: drive the motor instead.
+		switch (controls.get_event()) {
+			case RemoteVolume::Event::VolumeUp:
+				printf_("Event: UP\n");
+				break;
+			case RemoteVolume::Event::VolumeDown:
+				printf_("Event: DOWN\n");
+				break;
+			case RemoteVolume::Event::None:
+				break;
+		}
 	}
 }
 
