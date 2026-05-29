@@ -74,7 +74,7 @@ bool Controls::at_rail(Event dir) {
 	if (dir == Event::VolumeUp)
 		return adc >= AdcMax;
 	if (dir == Event::VolumeDown)
-		return adc <= AdcMute;
+		return adc <= AdcMin;
 	return true;
 }
 
@@ -92,22 +92,15 @@ void Controls::cancel_hold() {
 	motor_off();
 }
 
-// The first same-dir event is a tap (one fine pulse); a second
-// one soon after escalates to a continuous hold; further ones refresh the
-// release deadline.
-void Controls::on_dir_event(Event dir, uint32_t now) {
-	if (hold_dir == dir) {
-		hold_deadline_ms = now + HoldReleaseMs; // repeat: keep the hold alive
-	} else if (armed_dir == dir && (now - armed_ms) <= RepeatEngageMs) {
-		hold_dir = dir; // escalate tap -> continuous hold
+// A held-button NEC repeat arrived: (re)start the continuous hold in this
+// direction and push out the release deadline. A discrete press is handled
+// separately (a one-shot fine pulse), so taps never turn into a hold.
+void Controls::sustain_hold(Event dir, uint32_t now) {
+	if (hold_dir != dir) { // (re)start: reset the acceleration ramp origin
+		hold_dir = dir;
 		hold_start_ms = now;
-		hold_deadline_ms = now + HoldReleaseMs;
-	} else {
-		cancel_hold(); // fresh tap or direction change
-		fine_pulse(dir);
-		armed_dir = dir;
-		armed_ms = now;
 	}
+	hold_deadline_ms = now + HoldReleaseMs;
 }
 
 // Called every main-loop pass. While a hold is active, drives one software-PWM
@@ -149,35 +142,31 @@ void Controls::do_mute() {
 	const uint16_t adc = read_adc();
 	int pulses = 0;
 	if (raw_adc() > 0) {
-		if (raw_adc() <= AdcMute) {
-			pulse_down();
-		} else {
-			if (adc >= AdcMax)
-				pulse_down(50000);
-			else if (adc >= 7000)
-				pulse_down(43000);
-			else if (adc >= 6000)
-				pulse_down(36000);
-			else if (adc >= 5000)
-				pulse_down(33000);
-			else if (adc >= 4000)
-				pulse_down(30000);
-			else if (adc >= 3000)
-				pulse_down(24500);
-			else if (adc >= 2000)
-				pulse_down(20000);
-			else if (adc >= 1000)
-				pulse_down(13000);
-			else if (adc >= 500)
-				pulse_down(6000);
-			else if (adc >= 300)
-				pulse_down(3000);
+		if (adc >= AdcMax)
+			pulse_down(50000);
+		else if (adc >= 7000)
+			pulse_down(43000);
+		else if (adc >= 6000)
+			pulse_down(36000);
+		else if (adc >= 5000)
+			pulse_down(33000);
+		else if (adc >= 4000)
+			pulse_down(30000);
+		else if (adc >= 3000)
+			pulse_down(24500);
+		else if (adc >= 2000)
+			pulse_down(20000);
+		else if (adc >= 1000)
+			pulse_down(13000);
+		else if (adc >= 500)
+			pulse_down(6000);
+		else if (adc >= 300)
+			pulse_down(3000);
 
-			HAL_Delay(20);
-			while (raw_adc() > AdcMin) {
-				pulse_down(1000);
-				delay_us(8000);
-			}
+		HAL_Delay(20);
+		while (raw_adc() > AdcMin) {
+			pulse_down(1000);
+			delay_us(8000);
 		}
 	}
 	printf_("Mute (adc %u=>%u) pulsed %d\n", adc, raw_adc(), pulses);
@@ -186,13 +175,16 @@ void Controls::do_mute() {
 void Controls::process_events() {
 	const uint32_t now = HAL_GetTick();
 
-	switch (get_event()) {
+	const auto msg = get_event();
+	switch (msg.event) {
 		case Event::VolumeUp:
-			on_dir_event(Event::VolumeUp, now);
-			break;
-
 		case Event::VolumeDown:
-			on_dir_event(Event::VolumeDown, now);
+			if (msg.repeat) {
+				sustain_hold(msg.event, now); // held button: continuous ramped drive
+			} else {
+				cancel_hold(); // discrete press: one fine pulse
+				fine_pulse(msg.event);
+			}
 			break;
 
 		case Event::Mute:

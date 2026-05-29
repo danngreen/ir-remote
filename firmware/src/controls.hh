@@ -26,37 +26,29 @@ public:
 	uint16_t read_adc();
 	float scale_adc();
 
-	// Polls all event sources and returns the next pending Event (None if idle).
-	// IR takes priority over the console
-	Event get_event() {
-		if (auto e = ir.get_event(); e != Event::None)
-			return e;
-		return console_events.get_event();
+	// Polls all event sources and returns the next pending event (None if idle).
+	// IR takes priority over the console; console events are always presses.
+	EventMsg get_event() {
+		if (auto m = ir.get_event(); m.event != Event::None)
+			return m;
+		return {console_events.get_event(), false};
 	}
 
 	// Poll the event sources (IR + console) and drive the motor in response
 	void process_events();
 
 	static constexpr uint32_t MotorPulseUs = 3000; // single-tap (fine) pulse length
+
 	// Slider end-stops
 	static constexpr uint16_t AdcMin = 30;
-	static constexpr uint16_t AdcMute = 30;
 	static constexpr uint16_t AdcMax = 8150;
 
-	// Stall guard: if the motor is driven but the slider stops moving, we've hit
-	// an end stop (or jammed) -> stop driving. Robust backstop for AdcMin/AdcMax,
-	// which may not be reachable in practice (offset/noise keep the ends off 0/full).
-	static constexpr uint16_t StallMoveCounts = 15; // min raw-ADC change that counts as movement
-	static constexpr uint32_t StallTimeoutMs = 10;	// driven with no movement this long => stopped
-
-	// Hold-to-repeat: continuous drive with acceleration while a button is held.
-	static constexpr uint32_t RepeatEngageMs =
-		100; // 2nd same-dir event within this => engage hold (> ~108ms repeat period)
+	// Continuous hold while a button is held (driven by NEC repeats), with acceleration.
 	static constexpr uint32_t HoldReleaseMs = 160;	  // stop this long after the last repeat (button released)
+	static constexpr uint32_t HoldPwmPeriodUs = 9000; // PWM period while ramping
 	static constexpr uint32_t HoldRampMs = 2000;	  // time from engage to max-speed duty
-	static constexpr uint32_t HoldPwmPeriodUs = 8000; // software-PWM period while ramping
 	static constexpr uint8_t HoldDutyMinPct = 20;	  // starting duty (%) at engage
-	static constexpr uint8_t HoldDutyMaxPct = 30; // top duty (%) the ramp reaches — lower this to cap max hold speed
+	static constexpr uint8_t HoldDutyMaxPct = 40;	  // top duty (%) the ramp reaches
 
 	mdrivlib::Pin mot1;
 	mdrivlib::Pin mot2;
@@ -81,14 +73,12 @@ private:
 	bool at_rail(Event dir);
 	void do_mute();
 
-	// Hold-to-repeat state machine
-	void on_dir_event(Event dir, uint32_t now); // a VolumeUp/Down arrived
+	// Continuous hold, driven by held-button NEC repeats
+	void sustain_hold(Event dir, uint32_t now); // a repeat arrived: (re)start/refresh the hold
 	void service_hold();						// drive one accel/PWM slice while held
 	void cancel_hold();
 
 	Event hold_dir = Event::None;  // active continuous hold (None = not holding)
-	Event armed_dir = Event::None; // last tap dir, candidate to escalate to a hold
-	uint32_t armed_ms = 0;		   // HAL tick of the last tap
 	uint32_t hold_start_ms = 0;	   // HAL tick when the hold engaged (accel ramp origin)
 	uint32_t hold_deadline_ms = 0; // stop driving after this (no repeat => released)
 };

@@ -13,4 +13,11 @@ enum class Event {
 	Mute,
 };
 
+// An event plus whether it came from a held-button repeat (IR) rather than a
+// fresh press. Console events are always presses (repeat == false).
+struct EventMsg {
+	Event event = Event::None;
+	bool repeat = false;
+};
+
 } // namespace RemoteVolume

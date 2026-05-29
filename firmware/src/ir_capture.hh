@@ -22,6 +22,7 @@ struct IRCapture {
 	uint16_t last_capture = 0;
 	Event last_event = Event::None;
 	Event last_command = Event::None; // last decoded command, re-issued on NEC repeat
+	bool last_repeat = false;		  // was last_event produced by a NEC repeat (held button)?
 
 	static inline IRCapture *_instance;
 
@@ -175,6 +176,7 @@ struct IRCapture {
 		}
 
 		last_event = last_command;
+		last_repeat = false; // a full frame is a fresh press
 	}
 
 	// A NEC repeat frame carries no command — it just means the same button is
@@ -182,20 +184,23 @@ struct IRCapture {
 	// auto-repeat: one-shot commands (Mute) must not repeat, or they'd keep
 	// driving the slider into the end stop.
 	void repeat() {
-		if (last_command == Event::VolumeUp || last_command == Event::VolumeDown)
+		if (last_command == Event::VolumeUp || last_command == Event::VolumeDown) {
 			last_event = last_command;
+			last_repeat = true;
+		}
 	}
 
-	Event get_event() {
+	EventMsg get_event() {
 		// last_event is written by the TIM2 capture ISR. A plain read-modify-write
 		// races with it: if a repeat lands between the read and the clear, the clear
 		// wins and the event is dropped (a missing motor pulse). Make the
 		// read-and-clear atomic w.r.t. the ISR.
 		uint32_t primask = __get_PRIMASK();
 		__disable_irq();
-		Event e = std::exchange(last_event, Event::None);
+		EventMsg msg{last_event, last_repeat};
+		last_event = Event::None;
 		__set_PRIMASK(primask);
-		return e;
+		return msg;
 	}
 };
 
