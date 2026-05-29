@@ -21,6 +21,7 @@ struct IRCapture {
 
 	uint16_t last_capture = 0;
 	Event last_event = Event::None;
+	Event last_command = Event::None; // last decoded command, re-issued on NEC repeat
 
 	static inline IRCapture *_instance;
 
@@ -88,12 +89,15 @@ struct IRCapture {
 				break;
 
 			case NEC_STATE_LEAD_LOW:
-				// Expect leader high
+				// Expect leader high: ~4.5 ms => full frame, ~2.25 ms => repeat code
 				if (delta >= NEC_HDR_HIGH_MIN && delta <= NEC_HDR_HIGH_MAX) {
 					nec_state = NEC_STATE_LEAD_HIGH;
 					expecting_low = 1;
 					bit_index = 0;
 					nec_code = 0;
+				} else if (delta >= NEC_RPT_HIGH_MIN && delta <= NEC_RPT_HIGH_MAX) {
+					repeat();
+					nec_state = NEC_STATE_IDLE; // the trailing 560 us burst + gap reset us
 				} else {
 					nec_state = NEC_STATE_IDLE;
 				}
@@ -134,11 +138,7 @@ struct IRCapture {
 
 					if (bit_index >= 32) {
 						Debug::Pin0::high();
-						// if (nec_validate(nec_code)) {
-						// 	Debug::Pin1::high();
 						decode(nec_code);
-						// Debug::Pin1::low();
-						// }
 						nec_state = NEC_STATE_IDLE;
 						expecting_low = 0;
 						bit_index = 0;
@@ -154,12 +154,14 @@ struct IRCapture {
 
 	void decode(uint32_t code) {
 		if (code == Code::Up) {
-			last_event = Event::VolumeUp;
+			last_command = Event::VolumeUp;
 		}
 
 		else if (code == Code::Down)
 		{
-			last_event = Event::VolumeDown;
+			last_command = Event::VolumeDown;
+		}
+
 		else if (code == Code::Mute)
 		{
 			last_command = Event::Mute;
@@ -167,8 +169,21 @@ struct IRCapture {
 
 		else
 		{
-			printf_("Unknown code %x\n", code);
+			// printf_("Unknown code %x\n", code);
+			last_command = Event::None; // don't let a repeat re-issue a stale command
+			return;
 		}
+
+		last_event = last_command;
+	}
+
+	// A NEC repeat frame carries no command — it just means the same button is
+	// still held. Re-issue the last command, but only the ones meant to
+	// auto-repeat: one-shot commands (Mute) must not repeat, or they'd keep
+	// driving the slider into the end stop.
+	void repeat() {
+		if (last_command == Event::VolumeUp || last_command == Event::VolumeDown)
+			last_event = last_command;
 	}
 
 	Event get_event() {
