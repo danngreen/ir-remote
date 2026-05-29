@@ -26,12 +26,21 @@ public:
 	uint16_t read_adc();
 
 	// Polls all event sources and returns the next pending Event (None if idle).
-	// IR takes priority over the console when both have something.
+	// IR takes priority over the console
 	Event get_event() {
 		if (auto e = ir.get_event(); e != Event::None)
 			return e;
 		return console_events.get_event();
 	}
+
+	// Poll the event sources (IR + console) and drive the motor in response
+	void process_events();
+
+	static constexpr uint32_t MotorPulseUs = 3000; // 1 ms
+	// Slider end-stops
+	static constexpr uint16_t AdcMin = 1;
+	static constexpr uint16_t AdcMax = 8175;
+	// ------------------------------------------------------------------------
 
 	mdrivlib::Pin mot1;
 	mdrivlib::Pin mot2;
@@ -45,5 +54,10 @@ public:
 
 		adc.start();
 	}
+
+private:
+	// mot2 (PA9, "+") drives the slider up; mot1 (PA8, "-") drives it down
+	void pulse_up();
+	void pulse_down();
 };
 } // namespace RemoteVolume
