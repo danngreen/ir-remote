@@ -6,8 +6,6 @@
 #include "util/zip.hh"
 #include <cmath>
 
-// #include "test_audio.hh"
-
 namespace
 {
 // Initialize the system before main()
@@ -26,7 +24,8 @@ int main() {
 
 	RemoteVolume::AudioStream audio(
 		[&controls](const AudioStreamConf::AudioInBlock &inblock, AudioStreamConf::AudioOutBlock &outblock) {
-			float vol = controls.read_adc() / 8191.f;
+			float vol = controls.scale_adc();
+			vol = vol * vol;
 
 			for (auto [in, out] : zip(inblock, outblock)) {
 				auto in_L = in.scale_input_chan(0);

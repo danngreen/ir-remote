@@ -34,6 +34,11 @@ uint16_t Controls::read_adc() {
 	return smooth_adc.val();
 }
 
+float Controls::scale_adc() {
+	auto adc = std::clamp<uint32_t>(smooth_adc.val(), AdcMin, AdcMax);
+	return (adc - AdcMin) / float(AdcMax - AdcMin);
+}
+
 void Controls::pulse_up(int duration = MotorPulseUs) {
 	mot1.low();
 	mot2.high();
@@ -69,7 +74,7 @@ bool Controls::at_rail(Event dir) {
 	if (dir == Event::VolumeUp)
 		return adc >= AdcMax;
 	if (dir == Event::VolumeDown)
-		return adc <= AdcMin;
+		return adc <= AdcMute;
 	return true;
 }
 
@@ -87,8 +92,7 @@ void Controls::cancel_hold() {
 	motor_off();
 }
 
-// A VolumeUp/Down event arrived (fresh press, NEC repeat, or console
-// key-autorepeat). The first same-dir event is a tap (one fine pulse); a second
+// The first same-dir event is a tap (one fine pulse); a second
 // one soon after escalates to a continuous hold; further ones refresh the
 // release deadline.
 void Controls::on_dir_event(Event dir, uint32_t now) {
@@ -115,12 +119,12 @@ void Controls::service_hold() {
 
 	const uint32_t now = HAL_GetTick();
 
-	if ((int32_t)(now - hold_deadline_ms) >= 0) { // released
+	if (now > hold_deadline_ms) {
 		cancel_hold();
 		return;
 	}
 
-	if (at_rail(hold_dir)) { // hold position at the end stop, stay engaged
+	if (at_rail(hold_dir)) {
 		motor_off();
 		return;
 	}
@@ -135,7 +139,7 @@ void Controls::service_hold() {
 	const uint32_t on_us = HoldPwmPeriodUs * duty / 100;
 	drive(hold_dir);
 	delay_us(on_us);
-	if (on_us < HoldPwmPeriodUs) { // partial duty: off for the rest of the period
+	if (on_us < HoldPwmPeriodUs) {
 		motor_off();
 		delay_us(HoldPwmPeriodUs - on_us);
 	}
@@ -169,10 +173,10 @@ void Controls::do_mute() {
 			else if (adc >= 300)
 				pulse_down(3000);
 
-			HAL_Delay(100);
+			HAL_Delay(20);
 			while (raw_adc() > AdcMin) {
 				pulse_down(1000);
-				delay_us(10000);
+				delay_us(8000);
 			}
 		}
 	}

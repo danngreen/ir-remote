@@ -24,6 +24,7 @@ public:
 
 	uint16_t raw_adc();
 	uint16_t read_adc();
+	float scale_adc();
 
 	// Polls all event sources and returns the next pending Event (None if idle).
 	// IR takes priority over the console
@@ -38,9 +39,15 @@ public:
 
 	static constexpr uint32_t MotorPulseUs = 3000; // single-tap (fine) pulse length
 	// Slider end-stops
-	static constexpr uint16_t AdcMin = 1;
+	static constexpr uint16_t AdcMin = 30;
 	static constexpr uint16_t AdcMute = 30;
-	static constexpr uint16_t AdcMax = 8175;
+	static constexpr uint16_t AdcMax = 8150;
+
+	// Stall guard: if the motor is driven but the slider stops moving, we've hit
+	// an end stop (or jammed) -> stop driving. Robust backstop for AdcMin/AdcMax,
+	// which may not be reachable in practice (offset/noise keep the ends off 0/full).
+	static constexpr uint16_t StallMoveCounts = 15; // min raw-ADC change that counts as movement
+	static constexpr uint32_t StallTimeoutMs = 10;	// driven with no movement this long => stopped
 
 	// Hold-to-repeat: continuous drive with acceleration while a button is held.
 	static constexpr uint32_t RepeatEngageMs =
@@ -65,7 +72,6 @@ public:
 	}
 
 private:
-	// mot2 (PA9, "+") drives the slider up; mot1 (PA8, "-") drives it down
 	void pulse_up(int duration);
 	void pulse_down(int duration);
 
